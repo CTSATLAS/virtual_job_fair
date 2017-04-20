@@ -1,0 +1,35 @@
+%footer
+  .questions
+    .container
+      .row
+        .col-md-12.text-center
+          %p
+            Questions about using the Virtual Job Fair site?
+            %a.btn.btn-lg.btn-primary{:href => "#"} Job Seekers
+            %a.btn.btn-lg.btn-primary{:href => "#"} Employers
+
+  .career-source
+    .container
+      .row
+        .col-md-12.text-center
+          %p
+            = image_tag 'cs-florida-logo.png', alt: 'Career Source Florida logo'
+            A proud partner of
+            = image_tag 'american-job-center-logo.png', alt: 'American Job Center logo'
+            network.
+
+      .row
+        .col-md-12.text-center
+          %p.eoe CareerSource Tampa Bay and CareerSource Pinellas are equal opportunity employers delivering equal opportunity programs. Auxiliary aids and services are available upon request to individuals with disabilities by calling TTY/TDD 711.
+
+  .powered-by-atlas
+    .container
+      .row
+        .col-md-8.text-left
+          %p
+            ATLAS is a trademark of Complete Technology Solutions Copyright ©
+            = Date.today.year
+            &ndash; Complete Technology Solutions. All Rights Reserved.
+
+        .col-md-4
+          = image_tag 'powered-by-atlas.png', class: 'pull-right', alt: 'Virtual Job Fair is powered by ATLAS'

@@ -8,28 +8,34 @@
     %p.lead May 14th — 20th 2017
 
     %p Virtual Job Fairs are a convenient way to connect employers and young adults seeking job opportunities.
-
     %p During this week-long event, participating employers will be able to find young talents with the necessary skills set to meet the position requirements – without ever leaving their office. There is no cost to participate and the process is easy.
-
     %p Job seekers can connect with companies from the convenience of their laptop, tablet or smartphone through this online event. Here, you can feel free to browse for jobs at your leisure and see what our employers have to offer!
-
-    %p Start today by registering below. Only during the LIVE Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
+    %p
+      Start today by registering below. Only during the
+      %strong live
+      Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
 
     %p
       Have questions? Please contact
       = mail_to 'vjf@careersourcepinellas.com'
 
 .container.callout
-  .row
+  .row.text-center
     .col-md-4
+      = image_tag 'icons/job-search.png', class: 'img-responsive', height: 96, width: 96
+
       %h3= link_to 'Find a job', '#'
       %p.text-muted Search employers that are hiring in your area.
 
     .col-md-4
+      = image_tag 'icons/job.png', class: 'img-responsive', height: 96, width: 96
+
       %h3= link_to 'Post a job', '#'
       %p.text-muted Recruit new employees for your growing business
 
     .col-md-4
+      = image_tag 'icons/suitcase.png', class: 'img-responsive', height: 96, width: 96
+
       %h3= link_to 'Tools & Resources', '#'
       %p.text-muted Explore tips for your job search and career
 
@@ -49,10 +55,12 @@
           %label.control-label Password
           %input.form-control{ type: 'text' }
 
-    .col-md-6.col-md-offset-1
+        %button.btn.btn-primary{type: 'submit'} Log in
+
+    .col-md-5.col-md-offset-2
       %h4 Register Now
 
-      %p Start today by registering below. Only during the LIVE Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
+      %p.text-muted Start today by registering below. Only during the LIVE Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
 
       %a.btn.btn-success{ href: '#' } Register as a Job Seeker
       %a.btn.btn-success{ href: '#' } Register as an Employer

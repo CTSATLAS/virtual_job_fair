@@ -4,8 +4,9 @@
 .navbar.navbar-default {
   background-color: #fff;
   border: none;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.9);
-  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  margin-bottom: 48px;
   min-height: 100px;
   z-index: 1;
 
@@ -30,4 +31,8 @@
       }
     }
   }
+}
+
+.high_voltage-pages.home .navbar-default {
+  margin-bottom: 0 !important;
 }

@@ -1,6 +1,8 @@
 @import 'base/variables';
 
 .high_voltage-pages.home {
+  .navbar.navbar-default { border: none !important }
+
   #welcome-banner {
     background-image: image-url('banner-bg.jpg');
     margin-bottom: 8px;
@@ -33,6 +35,7 @@
           size: 13px;
           weight: 300;
         }
+        line-height: 1.4;
 
         &.lead {
           font: {
@@ -49,6 +52,76 @@
   }
 
   .callout {
-    p { font-size: 18px }
+    padding: 36px 0 20px;
+
+    img {
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+
+    p { font-size: 16px }
+  }
+
+  .log-in-or-register {
+    h4, p { margin-bottom: 24px }
+  }
+}
+
+.high_voltage-pages:not(.home) {
+  h1 {
+    color: $brand-primary;
+    margin: {
+      top: 0;
+      bottom: 30px;
+    }
+  }
+
+  dl {
+    dt {
+      color: $light-green;
+      font: {
+        size: 18px;
+        weight: 300;
+      }
+      padding: {
+        top: 15px;
+        bottom: 15px;
+      }
+      text-transform: uppercase;
+    }
+  }
+
+  aside {
+    background-color: $light-green;
+    color: darken($light-green, 40%);
+    padding: 20px;
+
+    h3 {
+      font: {
+        size: 21px;
+        weight: 300 !important;
+      }
+      margin-bottom: 18px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid lighten($light-green, 15%);
+        margin: 2em 0;
+        padding: 0;
+    }
+  }
+
+  .efm-warning {
+    font-size: 13px;
+    padding: 10px 20px;
   }
 }
