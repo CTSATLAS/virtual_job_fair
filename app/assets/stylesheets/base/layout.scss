@@ -1,0 +1,41 @@
+footer {
+  margin-top: 28px;
+
+  .questions {
+    background-color: #f2f2f2;
+    padding: 40px;
+
+    p {
+      color: #6a737b;
+      font: {
+        size: 26px;
+        weight: 300;
+      }
+    }
+  }
+
+  .career-source {
+    background-color: #6a737b;
+    padding: 20px;
+
+    p {
+      color: #fff;
+      font: {
+        size: 16px;
+        weight: 300;
+      }
+
+      &.eoe { font-size: 13px }
+    }
+  }
+
+  .powered-by-atlas {
+    padding: 20px;
+
+    p {
+      color: #999;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import 'base/variables';
+@import 'bootstrap/variables';
+
+.navbar.navbar-default {
+  background-color: #fff;
+  border: none;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.9);
+  margin-bottom: 0;
+  min-height: 100px;
+  z-index: 1;
+
+  .navbar-brand img { max-width: 140px }
+
+  .navbar-nav {
+    li {
+      padding: {
+        top: 24px;
+        bottom: 24px;
+      }
+
+      &.active a {
+        background-color: #fff;
+
+        &:hover { color: $gray-dark }
+      }
+
+      a {
+        color: $gray-dark;
+        font-size: 13px;
+      }
+    }
+  }
+}

@@ -2,10 +2,19 @@
 %html{ lang: 'en' }
   %head
     / meta
+    %meta{ charset: 'utf-8' }
+    %meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
     = csrf_meta_tags
 
     / stylesheets
     = stylesheet_link_tag :application, media: :all, 'data-turbolinks-track': 'reload'
+
+    / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file://
+    /[if lt IE 9]
+      = javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'
+      = javascript_include_tag '//oss.maxcdn.com/respond/1.4.2/respond.min.js'
 
     / javascripts
     = javascript_include_tag :application, 'data-turbolinks-track': 'reload'
@@ -14,6 +23,63 @@
     = favicon_link_tag 'favicon'
 
     %title Virtual Job Fair
-  %body
-    %h1 Virtual Job Fair
+  %body{ class: body_class }
+    %nav.navbar.navbar-default
+      .container
+        .navbar-header
+          %button.navbar-toggle(type='button' data-toggle='collapse' data-target='#collapse')
+            %span.sr-only Toggle Navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+
+          = link_to 'https://careersourcetampabay.com', class: 'navbar-brand' do
+            = image_tag 'cs-tampa-bay-logo.png', class: 'img-responsive', alt: 'Career Source Tampa Bay logo'
+
+          = link_to 'https://careersourcepinellas.com', class: 'navbar-brand' do
+            = image_tag 'cs-pinellas-logo.png', class: 'img-responsive', alt: 'Career Source Pinellas logo'
+
+        .collapse.navbar-collapse#collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.active= link_to 'Home', root_path
+            %li= link_to 'Job Seekers', '#'
+            %li= link_to 'Employers', '#'
+            %li= link_to 'Tools & Resources', '#'
+            %li= link_to 'Login', '#'
+
     = yield
+
+    %footer
+      .questions
+        .container
+          .row
+            .col-md-12.text-center
+              %p
+                Questions about using the Virtual Job Fair site?
+                %a.btn.btn-lg.btn-primary{:href => "#"} Job Seekers
+                %a.btn.btn-lg.btn-primary{:href => "#"} Employers
+
+      .career-source
+        .container
+          .row
+            .col-md-12.text-center
+              %p
+                = image_tag 'cs-florida-logo.png', alt: 'Career Source Florida logo'
+                A proud partner of
+                = image_tag 'american-job-center-logo.png', alt: 'American Job Center logo'
+                network.
+
+          .row
+            .col-md-12.text-center
+              %p.eoe CareerSource Tampa Bay and CareerSource Pinellas are equal opportunity employers delivering equal opportunity programs. Auxiliary aids and services are available upon request to individuals with disabilities by calling TTY/TDD 711.
+
+      .powered-by-atlas
+        .container
+          .row
+            .col-md-12.text-center
+              = image_tag 'powered-by-atlas.png', alt: 'Virtual Job Fair is powered by ATLAS'
+
+              %p
+                ATLAS is a trademark of Complete Technology Solutions Copyright ©
+                = Date.today.year
+                &ndash; Complete Technology Solutions. All Rights Reserved.
