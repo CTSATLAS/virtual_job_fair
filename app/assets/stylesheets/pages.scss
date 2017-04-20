@@ -76,6 +76,8 @@
     }
   }
 
+  h1 + dl dt { padding-top: 0 }
+
   dl {
     dt {
       color: $light-green;
@@ -93,6 +95,7 @@
 
   aside {
     background-color: $light-green;
+    border-radius: 4px;
     color: darken($light-green, 40%);
     padding: 20px;
 
