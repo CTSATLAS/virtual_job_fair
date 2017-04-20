@@ -38,26 +38,4 @@
             = mail_to 'vjf@careersourcepinellas.com.'
 
     .col-md-4
-      %aside
-        %p Virtual Job Fairs are a convenient way for job seekers to explore prospective companies, review job descriptions of their open positions and introduce yourself to them — all from the convenience of your own computer. Here, you can feel free to browse for jobs at your leisure and see what our employers have to offer!
-
-        %h3 Log in to your account *
-
-        %form
-          .form-group
-            %label.control-label Email
-            %input.form-control{ type: 'text' }
-
-          .form-group
-            %label.control-label Password
-            %input.form-control{ type: 'text' }
-
-          %button.btn.btn-block.btn-primary{type: 'submit'} Log in
-
-          %hr/
-
-        %p
-          Don't have an account?
-          = link_to 'Register as a Job Seeker', '#'
-
-      %p.efm-warning.text-muted * Participants in the Virtual Job Fair will need to create an account. This registration is separate from the Employ Florida Marketplace website
+      = render 'job_seeker_sidebar'
