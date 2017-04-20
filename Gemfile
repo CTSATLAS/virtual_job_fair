@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.1.0.rc1'
 
 # gem 'capistrano-rails', group: :development
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'flutie', '~> 2.0'
 gem 'hamlit-rails', '~> 0.2'
