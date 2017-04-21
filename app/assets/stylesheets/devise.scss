@@ -1,0 +1,15 @@
+@import 'base/variables';
+
+.devise-sessions {
+  h2 {
+    color: $brand-primary;
+    margin-bottom: 18px;
+  }
+
+  .panel { padding: 20px }
+
+  .actions {
+    margin-top: 24px;
+    p { margin: 3px 0 }
+  }
+}

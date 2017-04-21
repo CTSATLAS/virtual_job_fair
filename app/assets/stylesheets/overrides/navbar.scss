@@ -36,3 +36,42 @@
 .high_voltage-pages.home .navbar-default {
   margin-bottom: 0 !important;
 }
+
+@media (max-width: $screen-xs-max) {
+  .navbar.navbar-default {
+    margin-bottom: 0;
+    min-height: 80px;
+
+    .navbar-toggle {
+      margin: {
+        top: 22px;
+        bottom: 22px;
+      }
+    }
+
+    .navbar-brand img { max-width: 45px }
+
+    .navbar-nav {
+      margin: {
+        top: 0;
+        bottom: 0;
+      }
+
+      li {
+        border-bottom: 1px solid $gray-lighter;
+        padding: {
+          top: 0;
+          bottom: 0;
+        }
+
+        &:last-child { border: none }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
+  .navbar.navbar-default {
+    .navbar-brand img { max-width: 67px }
+  }
+}

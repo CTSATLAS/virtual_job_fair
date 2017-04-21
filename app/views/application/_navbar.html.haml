@@ -7,11 +7,16 @@
         %span.icon-bar
         %span.icon-bar
 
-      = link_to 'https://careersourcetampabay.com', class: 'navbar-brand' do
-        = image_tag 'cs-tampa-bay-logo.png', class: 'img-responsive', alt: 'Career Source Tampa Bay logo'
+      .logo.hidden-xs.hidden-sm
+        = link_to 'https://careersourcetampabay.com', class: 'navbar-brand' do
+          = image_tag 'cs-tampa-bay-logo.png', class: 'img-responsive', alt: 'Career Source Tampa Bay logo'
 
-      = link_to 'https://careersourcepinellas.com', class: 'navbar-brand' do
-        = image_tag 'cs-pinellas-logo.png', class: 'img-responsive', alt: 'Career Source Pinellas logo'
+        = link_to 'https://careersourcepinellas.com', class: 'navbar-brand' do
+          = image_tag 'cs-pinellas-logo.png', class: 'img-responsive', alt: 'Career Source Pinellas logo'
+
+      .mobile-logo.visible-xs-block.visible-sm-block
+        = link_to root_path, class: 'navbar-brand' do
+          = image_tag 'cs-mobile-logo.png', class: 'img-responsive', alt: 'Career Source Florida Mobile Logo'
 
     .collapse.navbar-collapse#collapse
       %ul.nav.navbar-nav.navbar-right
@@ -19,4 +24,4 @@
         %li= link_to 'Job Seekers', page_path('job-seekers')
         %li= link_to 'Employers', page_path('employers')
         %li= link_to 'Tools & Resources', page_path('tools-and-resources')
-        %li= link_to 'Login', '#'
+        %li= link_to 'Log in', login_path

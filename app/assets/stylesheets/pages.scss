@@ -128,3 +128,18 @@
     padding: 10px 20px;
   }
 }
+
+@media (max-width: $screen-xs-max) {
+  .high_voltage-pages.home {
+    #welcome-banner {
+      background: none;
+      min-height: 498px;
+
+      .announcement {
+        width: 100%;
+      }
+    }
+
+    .callout p { margin-bottom: 36px }
+  }
+}

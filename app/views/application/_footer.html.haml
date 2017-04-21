@@ -5,6 +5,10 @@
         .col-md-12.text-center
           %p
             Questions about using the Virtual Job Fair site?
+            %a.btn.btn-lg.btn-primary.hidden-sm{:href => "#"} Job Seekers
+            %a.btn.btn-lg.btn-primary.hidden-sm{:href => "#"} Employers
+
+          %p.visible-sm-block
             %a.btn.btn-lg.btn-primary{:href => "#"} Job Seekers
             %a.btn.btn-lg.btn-primary{:href => "#"} Employers
 
@@ -25,11 +29,11 @@
   .powered-by-atlas
     .container
       .row
-        .col-md-8.text-left
+        .col-xs-12.col-md-8.text-left
           %p
             ATLAS is a trademark of Complete Technology Solutions Copyright ©
             = Date.today.year
             &ndash; Complete Technology Solutions. All Rights Reserved.
 
-        .col-md-4
+        .col-xs-12.col-md-4
           = image_tag 'powered-by-atlas.png', class: 'pull-right', alt: 'Virtual Job Fair is powered by ATLAS'
