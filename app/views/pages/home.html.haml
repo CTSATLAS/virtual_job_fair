@@ -24,19 +24,19 @@
     .col-md-4
       = image_tag 'icons/job-search.png', class: 'img-responsive', height: 96, width: 96
 
-      %h3= link_to 'Find a job', '#'
+      %h3= link_to 'Find a job', page_path('job-seekers')
       %p.text-muted Search employers that are hiring in your area.
 
     .col-md-4
       = image_tag 'icons/job.png', class: 'img-responsive', height: 96, width: 96
 
-      %h3= link_to 'Post a job', '#'
+      %h3= link_to 'Post a job', page_path('employers')
       %p.text-muted Recruit new employees for your growing business
 
     .col-md-4
       = image_tag 'icons/suitcase.png', class: 'img-responsive', height: 96, width: 96
 
-      %h3= link_to 'Tools & Resources', '#'
+      %h3= link_to 'Tools & Resources', page_path('tools-and-resources')
       %p.text-muted Explore tips for your job search and career
 
 %hr/
@@ -62,5 +62,5 @@
 
       %p.text-muted Start today by registering below. Only during the LIVE Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
 
-      %a.btn.btn-success{ href: '#' } Register as a Job Seeker
-      %a.btn.btn-success{ href: '#' } Register as an Employer
+      = link_to 'Register as a Job Seeker', sign_up_path(account_type: 'jobseeker'), class: 'btn btn-success'
+      = link_to 'Register as a Employer', sign_up_path(account_type: 'employer'), class: 'btn btn-success'

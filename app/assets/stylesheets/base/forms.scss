@@ -1,0 +1,19 @@
+@import 'bootstrap/variables';
+
+form {
+  fieldset {
+    margin-bottom: 24px;
+
+    legend h4 { color: #6a737b }
+  }
+
+  label {
+    abbr[title] {
+      border-bottom: none;
+      color: $brand-danger;
+      text-decoration: none;
+    }
+  }
+
+  .help-block { font-size: 1.15rem }
+}

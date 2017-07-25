@@ -1,12 +1,13 @@
 @import 'base/variables';
 
-.devise-sessions {
+.devise-sessions,
+.users-registrations {
   h2 {
     color: $brand-primary;
     margin-bottom: 18px;
   }
 
-  .panel { padding: 20px }
+  .panel.panel-form { padding: 20px }
 
   .actions {
     margin-top: 24px;

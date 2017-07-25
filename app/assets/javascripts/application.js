@@ -10,8 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require jquery
+//= require rails-ujs
 //= require bootstrap
-//= require turbolinks
+//= require summernote
+//= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
+//= require parsley.config
+//= require parsleyjs
+//= require geocomplete/jquery.geocomplete.min
+//= require jquery.inputmask/dist/jquery.inputmask.bundle
+//= require selectize/dist/js/standalone/selectize.min
+
+//= require app
+
 //= require_tree .

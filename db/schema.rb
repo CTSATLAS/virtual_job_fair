@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421160532) do
+ActiveRecord::Schema.define(version: 20170726191449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobseeker_profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.date "date_of_birth", null: false
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "county", null: false
+    t.string "state", limit: 2
+    t.string "zipcode", limit: 5, null: false
+    t.string "phone_number", limit: 15
+    t.integer "gender", limit: 2, default: 0
+    t.text "career_objectives", null: false
+    t.string "interests_and_hobbies", null: false
+    t.string "education", limit: 28, null: false
+    t.boolean "currently_enrolled_in_school", default: false
+    t.boolean "currently_employed", default: false
+    t.text "volunteer_experience"
+    t.string "resume"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jobseeker_profiles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +57,5 @@ ActiveRecord::Schema.define(version: 20170421160532) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "jobseeker_profiles", "users"
 end
