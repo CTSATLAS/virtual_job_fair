@@ -24,8 +24,10 @@
 
     %title Virtual Job Fair
   %body{ class: body_class }
-    = render 'navbar'
-    = notice
-    = alert
-    = yield
-    = render 'footer'
+    .wrapper
+      = render 'navbar'
+      = notice
+      = alert
+      %main
+        = yield
+      = render 'footer'
