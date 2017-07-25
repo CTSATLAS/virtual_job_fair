@@ -1,6 +1,7 @@
 @import 'base/variables';
 
-.devise-sessions {
+.devise-sessions,
+.users-registrations {
   h2 {
     color: $brand-primary;
     margin-bottom: 18px;
