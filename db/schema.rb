@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20170726191449) do
     t.string "address_2"
     t.string "city"
     t.string "county"
-    t.string "state"
-    t.string "zipcode"
+    t.string "state", limit: 2
+    t.string "zipcode", limit: 5
+    t.string "phone_number", limit: 15
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_jobseeker_profiles_on_user_id"
