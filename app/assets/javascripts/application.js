@@ -15,4 +15,6 @@
 //= require bootstrap
 //= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
 //= require turbolinks
+//= require parsley.config
+//= require parsleyjs
 //= require_tree .
