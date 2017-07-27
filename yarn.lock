@@ -8,12 +8,70 @@ bootstrap-datepicker@^1.7.1:
   dependencies:
     jquery ">=1.7.1 <4.0.0"
 
+"commander@>= 0.5.2":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
+
+docco@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/docco/-/docco-0.6.3.tgz#c47b5823d79563d6fc3abd49f3de48986e5522ee"
+  dependencies:
+    commander ">= 0.5.2"
+    fs-extra ">= 0.6.0"
+    highlight.js ">= 8.0.x"
+    marked ">= 0.2.7"
+    underscore ">= 1.0.0"
+
+"fs-extra@>= 0.6.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.0.tgz#414fb4ca2d2170ba0014159d3a8aec3303418d9e"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^3.0.0"
+    universalify "^0.1.0"
+
+geocomplete@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/geocomplete/-/geocomplete-1.7.0.tgz#c244765c853575261b5ee016f75b77cd382e4a1e"
+  dependencies:
+    docco "^0.6.3"
+    uglifyjs "^2.3.6"
+
+graceful-fs@^4.1.2, graceful-fs@^4.1.6:
+  version "4.1.11"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
+
+"highlight.js@>= 8.0.x":
+  version "9.12.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
 "jquery@>=1.7.1 <4.0.0", jquery@>=1.8.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
+jsonfile@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-3.0.1.tgz#a5ecc6f65f53f662c4415c7675a0331d0992ec66"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
+"marked@>= 0.2.7":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
 
 parsleyjs@^2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/parsleyjs/-/parsleyjs-2.7.2.tgz#8e64e2a2975ce0455edacc45cb1867d0885fca66"
   dependencies:
     jquery ">=1.8.0"
+
+uglifyjs@^2.3.6:
+  version "2.4.11"
+  resolved "https://registry.yarnpkg.com/uglifyjs/-/uglifyjs-2.4.11.tgz#3440d64e045759589524418eb641c68bb90d113e"
+
+"underscore@>= 1.0.0":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
+
+universalify@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
