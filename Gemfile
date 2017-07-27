@@ -19,6 +19,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rubocop', '~> 0.46.0', require: false
 gem 'sass-rails', github: 'rails/sass-rails'
+gem 'simple_form', '~> 3.5'
 gem 'title', '~> 0.0.7'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
