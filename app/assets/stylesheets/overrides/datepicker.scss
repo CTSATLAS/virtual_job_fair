@@ -1,0 +1,32 @@
+@import 'base/variables';
+
+.datepicker {
+  padding: 0 !important;
+}
+
+th.prev,
+th.datepicker-switch,
+th.next { font-weight: bold !important }
+
+th.prev,
+th.datepicker-switch,
+th.next {
+  border-radius: 0 !important;
+  color: #666 !important;
+  padding: 10px 5px !important;
+}
+
+td.disabled,
+td span.disabled {
+  color: #ccc !important;
+}
+
+.datepicker-days tbody tr {
+  td:first-child { padding-left: 10px !important }
+  td:last-child { padding-right: 10px !important }
+}
+
+td.old,
+td.new {
+  color: #999 !important;
+}

@@ -16,4 +16,6 @@
 //= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
 //= require parsley.config
 //= require parsleyjs
+//= require geocomplete/jquery.geocomplete.min
+//= require jquery.inputmask/dist/jquery.inputmask.bundle
 //= require_tree .

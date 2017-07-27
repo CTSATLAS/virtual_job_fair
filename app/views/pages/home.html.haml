@@ -62,5 +62,5 @@
 
       %p.text-muted Start today by registering below. Only during the LIVE Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
 
-      %a.btn.btn-success{ href: '#' } Register as a Job Seeker
-      %a.btn.btn-success{ href: '#' } Register as an Employer
+      = link_to 'Register as a Job Seeker', sign_up_path(account_type: 'jobseeker'), class: 'btn btn-success'
+      = link_to 'Register as a Employer', sign_up_path(account_type: 'employer'), class: 'btn btn-success'

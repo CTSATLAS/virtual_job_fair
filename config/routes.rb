@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     delete 'logout', to: 'devise/sessions#destroy'
-    get 'sign_up/:account_type', to: 'users/registrations#new'
+    get 'sign_up/:account_type', to: 'users/registrations#new', as: :sign_up
   end
 
   namespace :admin do

@@ -1,1 +1,33 @@
-jobseeker fields!
+= f.simple_fields_for :jobseeker_profile do |j|
+  .row
+    .col-md-6
+      = j.input :first_name
+    .col-md-6
+      = j.input :last_name
+
+  = j.input :date_of_birth, as: :string, wrapper: :datepicker, input_html: { 'data-date-end-date': '-14y', 'data-parsley-trigger': 'input' }
+
+  .form-group
+    %label{ for: 'street-address' } Street Address
+    %input#street-address.form-control{ type: 'text' }
+    %p.help-block Type in your full address
+
+  .address-fields
+    = j.input :address_1, hint: 'Street address, P.O. box, company name, c/o'
+    = j.input :address_2, hint: 'Apartment, suite, unit, building, floor, etc.'
+
+    .row
+      .col-md-6
+        = j.input :city
+
+      .col-md-6
+        = j.input :county, collection: florida_counties
+
+    .row
+      .col-md-8
+        = j.input :state, collection: us_states
+
+      .col-md-4
+        = j.input :zipcode, input_html: { maxlength: 5 }
+
+  = j.input :phone_number, input_html: { 'data-inputmask': "'mask': '(999) 999-9999'"}
