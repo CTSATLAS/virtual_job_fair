@@ -13,5 +13,6 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap
+//= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
 //= require turbolinks
 //= require_tree .
