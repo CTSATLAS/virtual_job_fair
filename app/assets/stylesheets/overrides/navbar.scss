@@ -30,6 +30,16 @@
         font-size: 13px;
       }
     }
+
+    li.dropdown {
+      .dropdown-menu {
+        padding: 4px 0;
+        top: 74%;
+      }
+
+      li { padding: 0 }
+      li a { padding: 7px 20px }
+    }
   }
 }
 

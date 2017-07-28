@@ -1,6 +1,7 @@
 @App =
   init: ->
     @initSummernote()
+    @bootstrapDropdownFix()
 
   initSummernote: ->
     toolbarConfig = []
@@ -17,6 +18,10 @@
       $(this).summernote
         height: 175
         toolbar: toolbarConfig
+
+  # I'm not quite sure why this is needed to be honest...
+  bootstrapDropdownFix: ->
+    $('.dropdown-toggle').dropdown()
 
 $ ->
   window.App.init()
