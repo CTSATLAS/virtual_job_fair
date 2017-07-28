@@ -14,7 +14,8 @@
 //= require rails-ujs
 //= require bootstrap
 //= require summernote
-//= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
+//= require moment/moment
+//= require bootstrap-daterangepicker/daterangepicker
 //= require parsley.config
 //= require parsleyjs
 //= require geocomplete/jquery.geocomplete.min

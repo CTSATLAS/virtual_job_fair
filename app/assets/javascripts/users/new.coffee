@@ -52,8 +52,8 @@
     $('.address-fields').show()
 
   fireValidationWhenDateChanged: ->
-    $('[data-provide="datepicker"]').datepicker().on 'changeDate', (event) ->
-      $(this).parsley().validate()
+    #$('[data-provide="datepicker"]').datepicker().on 'changeDate', (event) ->
+      #$(this).parsley().validate()
 
 $ ->
   window.App.Users.new.init();

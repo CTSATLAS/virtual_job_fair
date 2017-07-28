@@ -1,7 +1,20 @@
 @App =
   init: ->
+    @initDatepicker()
     @initSummernote()
     @bootstrapDropdownFix()
+
+  initDatepicker: ->
+    ageLimitDate = moment().subtract(14, 'years')
+
+    $('[data-provide="datepicker-date-of-birth"]').daterangepicker
+      autoUpdateInput: false
+      maxDate: ageLimitDate
+      singleDatePicker: true
+      showDropdowns: true
+      startDate: ageLimitDate
+    , (start, end, label) ->
+      $(@.element).val(start.format('MM/DD/YYYY'))
 
   initSummernote: ->
     toolbarConfig = []
