@@ -46,4 +46,18 @@
   = j.input :currently_enrolled_in_school
   = j.input :currently_employed
   = j.input :volunteer_experience, wrapper: :wysiwyg, input_html: { 'data-wysiwyg': 'simple' }
-  = j.input :resume
+
+  .form-group
+    = j.label :resume, 'Upload your resume'
+    = j.input_field :resume, class: 'file-input'
+
+    .input-group
+      .form-control
+        %i.fa.fa-file-word-o.file-input-icon.file-input-file-exists
+        %span.file-input-filename
+      %span.input-group-btn
+        %button.file-input-browse.btn.btn-default{ type: 'button' } Browse
+
+    %p.help-block
+      Allowed file types:
+      %strong .doc, .docx, .pdf

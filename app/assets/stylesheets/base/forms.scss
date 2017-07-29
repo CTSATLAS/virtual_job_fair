@@ -16,4 +16,16 @@ form {
   }
 
   .help-block { font-size: 1.15rem }
+
+  .file-input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .file-input-filename {
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .file-input-file-exists { display: none }
 }
