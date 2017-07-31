@@ -6,6 +6,7 @@
     "geocomplete": "^1.7.0",
     "jquery": "^3.2.1",
     "jquery.inputmask": "^3.3.4",
+    "messenger": "https://github.com/HubSpot/messenger",
     "parsleyjs": "^2.7.2",
     "selectize": "^0.12.4"
   }

@@ -1,8 +1,19 @@
+Messenger.options =
+  extraClasses: 'messenger-fixed messenger-on-top'
+  theme: 'block'
+
 @App =
   init: ->
+    @interceptFlashMessages()
     @initDatepicker()
     @initSummernote()
     @bootstrapDropdownFix()
+
+  interceptFlashMessages: ->
+    $('.flash').each ->
+      Messenger().post
+        message: $(this).text()
+        type: $(this).data('type')
 
   initDatepicker: ->
     ageLimitDate = moment().subtract(14, 'years')

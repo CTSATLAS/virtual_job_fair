@@ -189,6 +189,10 @@ jsonfile@^3.0.0:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.6.tgz#b2c6c618fccece4ef86c4fc6cb8a7cbf5aeda8d7"
 
+"messenger@https://github.com/HubSpot/messenger":
+  version "1.5.0"
+  resolved "https://github.com/HubSpot/messenger#8fbf20e5e01070e65d6ca4f2314ab0928e8682fe"
+
 microplugin@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/microplugin/-/microplugin-0.0.3.tgz#1fc2e1bb7c9e19e82bd84bba9137bbe71250d8cd"

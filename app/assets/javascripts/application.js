@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require bootstrap
+//= require messenger/build/js/messenger
 //= require summernote
 //= require moment/moment
 //= require bootstrap-daterangepicker/daterangepicker
