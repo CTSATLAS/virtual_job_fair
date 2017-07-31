@@ -23,12 +23,14 @@
   %body{ class: body_class }
     .wrapper
       = render 'navbar'
-      = notice
-      = alert
+      = render 'flash_messages'
+
       %main
         = yield
+
       = render 'footer'
 
     / javascripts
+    = javascript_include_tag '//cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js'
     = yield :javascripts
     = javascript_include_tag :application

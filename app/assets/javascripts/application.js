@@ -13,9 +13,16 @@
 //= require jquery
 //= require rails-ujs
 //= require bootstrap
-//= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min
+//= require messenger/build/js/messenger
+//= require summernote
+//= require moment/moment
+//= require bootstrap-daterangepicker/daterangepicker
 //= require parsley.config
 //= require parsleyjs
 //= require geocomplete/jquery.geocomplete.min
 //= require jquery.inputmask/dist/jquery.inputmask.bundle
+//= require selectize/dist/js/standalone/selectize.min
+
+//= require app
+
 //= require_tree .

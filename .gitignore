@@ -138,6 +138,7 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
+/public/resumes
 /spec/tmp
 **.orig
 rerun.txt
@@ -237,3 +238,5 @@ GitHub.sublime-settings
 dump.rdb
 # Ignore application configuration
 /config/application.yml
+
+TODOs.org
