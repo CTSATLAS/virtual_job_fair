@@ -1,4 +1,4 @@
-# ATLAS v4
+# Virtual Job Fair
 
 ## Dependencies
 * Ruby 2.4.0+
@@ -19,7 +19,7 @@ We use [Forego](https://github.com/ddollar/forego) to run the development server
 Run `forego start` to start all the processes
 
 ## Style Guidelines
-We'll be using strict style guidelines in ATLAS v4 so we don't run into all the issues from ATLAS 3.
+We'll be using strict style guidelines
 
 * [Javascript](https://github.com/thoughtbot/guides/tree/master/style/javascript)
 * [Html](https://github.com/thoughtbot/guides/tree/master/style/html)
@@ -29,7 +29,7 @@ We'll be using strict style guidelines in ATLAS v4 so we don't run into all the 
 * [Sass](https://github.com/thoughtbot/guides/tree/master/style/sass)
 
 ## Contributing
-* Create a feature branch using [gitflow](http://nvie.com/posts/a-successful-git-branching-model/), e.g. `feature/AT-xx-feature-name`
+* Create a feature branch using [gitflow](http://nvie.com/posts/a-successful-git-branching-model/), e.g. `feature/VJF-xx-feature-name`
 * Create a pull request immediately to discuss the feature
 * Code the damn thing! (**Don't forget to test!**)
 * [Write good commit messages!](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
