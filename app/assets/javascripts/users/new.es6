@@ -48,6 +48,7 @@ window.App.Users.new = {
     $(`#user_${ account_type }_profile_attributes_county`).val(`${ county.short_name.slice(0, -7)  }`);
     $(`#user_${ account_type }_profile_attributes_zipcode`).val(`${ zipcode.short_name  }`);
 
+    window.App.Users.new.revalidateIfNeeded();
     window.App.Users.new.showAddressFields();
     $(event.target)
       .parent()
@@ -69,6 +70,14 @@ window.App.Users.new = {
 
   showAddressFields() {
     $('.address-fields').show();
+  },
+
+  revalidateIfNeeded() {
+    const $newUserFormValidation = $('#new_user').parsley();
+
+    if ($newUserFormValidation.validationResult == null) return;
+
+    $newUserFormValidation.validate();
   }
 };
 
