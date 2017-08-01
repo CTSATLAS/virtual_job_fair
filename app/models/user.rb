@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :employer_profile
   has_one :jobseeker_profile
+
+  accepts_nested_attributes_for :employer_profile
   accepts_nested_attributes_for :jobseeker_profile
 
   validates :email, presence: true

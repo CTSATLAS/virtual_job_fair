@@ -1,1 +1,49 @@
-employer fields!
+= f.simple_fields_for :employer_profile do |e|
+  %fieldset
+    %legend
+      %h4 Company Details
+
+    = e.input :company_name
+    = e.input :company_description, wrapper: :wysiwyg, input_html: { 'data-wysiwyg': 'simple' }
+
+    = render 'users/geocomplete_address_fields'
+
+    .address-fields
+      = e.input :address_1, hint: 'Street address, P.O. box, company name, c/o'
+      = e.input :address_2, hint: 'Apartment, suite, unit, building, floor, etc.'
+
+      .row
+        .col-md-6
+          = e.input :city
+
+        .col-md-6
+          = e.input :county, collection: florida_counties
+
+      .row
+        .col-md-8
+          = e.input :state, collection: us_states
+
+        .col-md-4
+          = e.input :zipcode, input_html: { maxlength: 5 }
+
+    .row
+      .col-md-6
+        = e.input :phone_number, hint: 'Extensions are optional', input_html: { 'data-inputmask': "'mask': '(999) 999-9999 [Ext. 99999999]'"}
+      .col-md-6
+        = e.input :fax_number, hint: 'Extensions are optional', input_html: { 'data-inputmask': "'mask': '(999) 999-9999 [Ext. 99999999]'"}
+
+    .form-group
+      = e.label :website
+      .input-group
+        .input-group-addon http://
+        = e.input_field :website, class: 'form-control'
+
+  %fieldset
+    %legend
+      %h4 Contact Details
+
+    .row
+      .col-md-6
+        = e.input :contact_first_name, label: 'First name'
+      .col-md-6
+        = e.input :contact_last_name, label: 'Last name'

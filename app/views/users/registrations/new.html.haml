@@ -15,11 +15,7 @@
       = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-vertical', 'data-parsley-validate': '' }) do |f|
         = f.hidden_field :account_type, value: params[:account_type]
 
-        %fieldset
-          %legend
-            %h4 Profile Details
-
-          = render "#{params[:account_type]}_profile", f: f
+        = render "#{params[:account_type]}_profile", f: f
 
         %fieldset
           %legend
