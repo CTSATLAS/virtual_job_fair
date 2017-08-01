@@ -40,6 +40,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
         :email,
         :password,
         :password_confirmation,
+        employer_profile_attributes: [
+          :company_name,
+          :company_description,
+          :address_1,
+          :address_2,
+          :city,
+          :county,
+          :state,
+          :zipcode,
+          :phone_number,
+          :fax_number,
+          :website,
+          :contact_first_name,
+          :contact_last_name
+        ],
         jobseeker_profile_attributes: [
           :first_name,
           :last_name,
