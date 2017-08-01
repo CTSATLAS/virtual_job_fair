@@ -1,10 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: :create
+  before_action :ensure_account_type_params_is_present, only: :new
 
   # GET /resource/sign_up
   def new
     build_resource({})
-    resource.build_jobseeker_profile
+    build_profile
   end
 
   # POST /resource
@@ -60,5 +61,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
         ]
       )
     end
+  end
+
+  def ensure_account_type_params_is_present
+    redirect_to root_path unless params[:account_type].present?
+  end
+
+  def build_profile
+    resource.send(:"build_#{params[:account_type]}_profile")
   end
 end
