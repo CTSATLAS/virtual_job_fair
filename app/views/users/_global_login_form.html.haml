@@ -1,0 +1,20 @@
+= form_tag session_path(:user) do
+  .form-group
+    %label.control-label Email
+    = text_field_tag 'user[email]', nil, class: 'form-control'
+
+  .form-group
+    %label.control-label.inline-link
+      Password
+      %p.pull-right= link_to "Forgot your password?", new_password_path(:user)
+
+    = password_field_tag 'user[password]', nil, class: 'form-control'
+
+  .checkbox
+    = label_tag 'user[remember_me]' do
+      = check_box_tag 'user[remember_me]'
+      Remember Me
+
+  .actions
+    %button.btn.btn-block.btn-primary{type: 'submit'} Log in
+    .clearfix

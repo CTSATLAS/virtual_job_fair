@@ -96,18 +96,9 @@
 
         %h3 Log in to your account *
 
-        %form
-          .form-group
-            %label.control-label Email
-            %input.form-control{ type: 'text' }
+        = render 'users/global_login_form'
 
-          .form-group
-            %label.control-label Password
-            %input.form-control{ type: 'text' }
-
-          %button.btn.btn-block.btn-primary{type: 'submit'} Log in
-
-          %hr/
+        %hr/
 
         %p
           Don't have an account?

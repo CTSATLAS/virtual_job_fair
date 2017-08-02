@@ -45,22 +45,16 @@
   .row
     .col-md-5
       %h4 Log in to your account
-
-      %form
-        .form-group
-          %label.control-label Email
-          %input.form-control{ type: 'text' }
-
-        .form-group
-          %label.control-label Password
-          %input.form-control{ type: 'text' }
-
-        %button.btn.btn-primary{type: 'submit'} Log in
+      = render 'users/global_login_form'
 
     .col-md-5.col-md-offset-2
       %h4 Register Now
 
       %p.text-muted Start today by registering below. Only during the LIVE Virtual Job Fair period will you be able to view and surf job openings. Registration can be done at any time. Good luck in your job search!
 
-      = link_to 'Register as a Job Seeker', sign_up_path(account_type: 'jobseeker'), class: 'btn btn-success'
-      = link_to 'Register as a Employer', sign_up_path(account_type: 'employer'), class: 'btn btn-success'
+      .btn-group.btn-group-justified
+        .btn-group
+          = link_to 'Register as a Job Seeker', sign_up_path(account_type: 'jobseeker'), class: 'btn btn-default'
+
+        .btn-group
+          = link_to 'Register as a Employer', sign_up_path(account_type: 'employer'), class: 'btn btn-default'

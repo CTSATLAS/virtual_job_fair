@@ -13,6 +13,16 @@ form {
       color: $brand-danger;
       text-decoration: none;
     }
+
+    &.inline-link {
+      width: 100%;
+
+      p {
+        font-size: 0.85em;
+        line-height: 1.4;
+        margin-bottom: 0 !important
+      }
+    }
   }
 
   .help-block { font-size: 1.15rem }
