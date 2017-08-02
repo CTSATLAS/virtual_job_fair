@@ -12,5 +12,8 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap.min
+//= require sidebar-nav/sidebar-nav.min
+//= require jquery.slimscroll
+//= require ampleadmin/custom
 //= require admin/app.min
