@@ -12,8 +12,16 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require moment/moment
 //= require bootstrap.min
+//= require bootstrap-daterangepicker/daterangepicker
+//= require parsley.config
+//= require parsleyjs
+
 //= require sidebar-nav/sidebar-nav.min
 //= require jquery.slimscroll
+//= require fullcalendar/jquery-ui.min
+//= require fullcalendar/fullcalendar.min
+
 //= require ampleadmin/custom
 //= require_tree ./admin/events

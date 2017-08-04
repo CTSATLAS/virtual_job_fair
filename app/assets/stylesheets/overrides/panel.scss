@@ -1,0 +1,13 @@
+.panel.panel-default {
+  .panel-heading {
+    position: relative;
+
+    .panel-heading-action {
+      right: 25px;
+      position: absolute;
+      top: 14px;
+
+      .fa { margin: 0 5px 0 0 }
+    }
+  }
+}

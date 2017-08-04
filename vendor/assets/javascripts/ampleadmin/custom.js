@@ -77,6 +77,10 @@ $(document).ready(function () {
             },
             url = window.location,
             element = $('ul.nav a').filter(function () {
+                if (this.href.slice(-6) === '/admin' && url.href.slice(-6) !== '/admin') {
+                  return false;
+                }
+
                 return this.href === url || url.href.indexOf(this.href) === 0;
             }).addClass('active').parent().parent().addClass('in').parent();
         if (element.is('li')) {
@@ -205,7 +209,7 @@ $(document).ready(function () {
         $("#recoverform").fadeIn();
     });
 
-    /* ================================================================= 
+    /* =================================================================
         Update 1.5
         this is for close icon when navigation open in mobile view
     ================================================================= */

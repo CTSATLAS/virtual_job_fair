@@ -1,0 +1,54 @@
+- content_for :page_title { 'Good morning, Kimberly!' }
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        Event Schedule
+
+        .panel-heading-action
+          = link_to '#', class: 'btn btn-info', 'data-target': '#addEvent', 'data-toggle': 'modal' do
+            %i.fa.fa-plus
+            New Event
+
+      .panel-wrapper.collapse.in
+        .panel-body
+          #calendar
+
+.modal.fade.none-border#addEvent
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+        %h4.modal-title New Event
+
+      = simple_form_for [:admin, Event.new], html: { class: 'form-vertical', 'data-parsley-validate': '' } do |f|
+        .modal-body
+          = f.input :title
+          = f.input :specialty
+
+          .form-group
+            %label.control-label{ for: 'visibility-schedule' }
+              %abbr{ title: 'required' } *
+              Visibility Schedule
+
+            %input#visibility-schedule.form-control(type="text" data-provides="daterangepicker" required)
+
+          = f.input :visible_start, as: :hidden
+          = f.input :visible_end, as: :hidden
+
+          .form-group
+            %label.control-label{ for: 'event-dates' }
+              %abbr{ title: 'required' } *
+              Event Dates
+
+            %input#event-dates.form-control(type="text" data-provides="daterangepicker" required)
+
+          = f.input :starts_at, as: :hidden
+          = f.input :ends_at, as: :hidden
+
+          = f.input :allow_late_registration
+
+        .modal-footer
+          %button.btn.btn-white(type="button" data-dismiss="modal") Close
+          %button.btn.btn-info(type="submit") Add Event
