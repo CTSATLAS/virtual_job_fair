@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
 
     <!-- stylesheets -->
-    <%= stylesheet_link_tag 'admin/admin' %>
+    <%= stylesheet_link_tag 'admin' %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,9 +17,10 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <!-- favicon -->
+    <%= favicon_link_tag 'favicon' %>
 
-    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Virtual Job Fair Administration</title>
 </head>
 <body class="fix-header">
     <div id="wrapper">
@@ -50,6 +51,6 @@
         </div>
     </div>
 
-    <%= javascript_include_tag 'admin/admin' %>
+    <%= javascript_include_tag 'admin' %>
 </body>
 </html>
