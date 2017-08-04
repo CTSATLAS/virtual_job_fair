@@ -16,4 +16,4 @@
 //= require sidebar-nav/sidebar-nav.min
 //= require jquery.slimscroll
 //= require ampleadmin/custom
-//= require admin/app.min
+//= require_tree ./admin/events
