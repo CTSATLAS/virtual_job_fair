@@ -38,11 +38,14 @@ window.Admin.Events.new = {
 
     $('[data-provides="daterangepicker"]')
       .daterangepicker({
+        applyClass: 'btn-info',
         autoUpdateInput: false,
         locale: {
           cancelLabel: 'Clear',
           format: 'MM/DD/YYYY h:mm A'
         },
+        minDate: moment().format('MM/DD/YYYY'),
+        showCustomRangeLabel: false,
         timePicker: true,
         timePickerIncrement: 30
       })
@@ -74,6 +77,4 @@ window.Admin.Events.new = {
   }
 };
 
-$(() => {
-  window.Admin.Events.new.init();
-});
+$(() => window.Admin.Events.new.init());
