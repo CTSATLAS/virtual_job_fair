@@ -17,7 +17,7 @@ gem 'flutie', '~> 2.0'
 gem 'font-awesome-sass', '~> 4.7'
 gem 'hamlit-rails', '~> 0.2'
 gem 'high_voltage', '~> 3.0'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rubocop', '~> 0.46.0', require: false

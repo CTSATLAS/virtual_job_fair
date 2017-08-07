@@ -7,7 +7,7 @@
         Event Schedule
 
         .panel-heading-action
-          = link_to '#', class: 'btn btn-info', 'data-target': '#addEvent', 'data-toggle': 'modal' do
+          = link_to '#', class: 'btn btn-info', 'data-open': 'modal' do
             %i.fa.fa-plus
             New Event
 
@@ -23,6 +23,8 @@
         %h4.modal-title New Event
 
       = simple_form_for [:admin, Event.new], html: { class: 'form-vertical', 'data-parsley-validate': '' } do |f|
+        = f.input :id, as: :hidden
+
         .modal-body
           = f.input :title
           = f.input :specialty
@@ -49,8 +51,11 @@
           = f.input :starts_at, as: :hidden
           = f.input :ends_at, as: :hidden
 
-          = f.input :allow_late_registration
+          %label
+            = check_box 'event', 'allow_late_registration', { class: 'js-switch', 'data-size': 'small' }
+            Allow late registration
 
         .modal-footer
+          = link_to 'Delete Event', admin_event_path(1), method: :delete, class: 'btn btn-link text-danger pull-left', remote: true
           %button.btn.btn-white(type="button" data-dismiss="modal") Close
           %button.btn.btn-info(type="submit") Add Event

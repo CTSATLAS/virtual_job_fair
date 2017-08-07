@@ -309,7 +309,7 @@ DEPENDENCIES
   font-awesome-sass (~> 4.7)
   hamlit-rails (~> 0.2)
   high_voltage (~> 3.0)
-  jbuilder (~> 2.5)
+  jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
   pry-nav

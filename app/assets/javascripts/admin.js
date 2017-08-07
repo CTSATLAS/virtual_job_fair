@@ -22,6 +22,7 @@
 //= require jquery.slimscroll
 //= require fullcalendar/jquery-ui.min
 //= require fullcalendar/fullcalendar.min
+//= require switchery/switchery.min
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events

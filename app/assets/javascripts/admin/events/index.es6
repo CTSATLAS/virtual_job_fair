@@ -7,29 +7,60 @@ window.Admin.Events.new = {
   init() {
     this.initCalendar();
     this.initDaterangePicker();
+    this.initModal();
+    this.initSwitchery();
   },
 
   initCalendar() {
     $('#calendar').fullCalendar({
-      slotDuration: '00:15:00',
-      minTime: '08:00:00',
-      maxTime: '19:00:00',
       defaultView: 'month',
+      events: '/admin/events.json',
       handleWindowResize: true,
       header: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'month'
+          left: '',
+          center: 'prev title next',
+          right: ''
       },
-      events: [{
-        id: 1,
-        url: '/admin/events/test',
-        title: 'Youth Job Fair (visible from 01/01/2001 - 01/10/2001)',
-        start: new Date($.now() + 506800000),
-        allDay: true,
-        className: 'bg-info',
-        editable: true
-      }]
+      maxTime: '19:00:00',
+      minTime: '08:00:00',
+      slotDuration: '00:15:00',
+
+      eventRender(event, $element) {
+        const startsAt = event.start,
+          endsAt = event.end,
+          visibleStart = moment(event.visible_start),
+          visibleEnd = moment(event.visible_end),
+          titleText = $element.find('.fc-title').text();
+
+        $element.on('click', () => {
+          $('.modal-title').text(`Edit ${event.title}`);
+          $('#event_id').val(event.id);
+          $('#event_title').val(event.title);
+          $('#event_specialty').val(event.specialty);
+          $('#visibility-schedule').val(`${visibleStart.format('MM/DD/YYYY')} - ${visibleEnd.format('MM/DD/YYYY')}`);
+          $('#event_visible_start').val(visibleStart);
+          $('#event_visible_end').val(visibleEnd);
+          $('#event-dates').val(`${startsAt.format('MM/DD/YYYY')} - ${endsAt.format('MM/DD/YYYY')}`);
+          $('#event_starts_at').val(startsAt);
+          $('#event_ends_at').val(endsAt);
+          $('#addEvent .btn[type="submit"]').text('Save Event');
+
+          if (event.allow_late_registration) {
+            $('#event_allow_late_registration').trigger('click');
+          }
+
+          $('.modal-footer')
+            .find('.btn-link')
+            .show()
+
+          $('#addEvent').modal('show');
+        });
+
+        $element.find('.fc-time').remove();
+        $element
+          .find('.fc-title')
+          .html(`<strong>${titleText}</strong>&nbsp;&nbsp;<em style="color: #93deff; font-size: 12px">(Visible: ${visibleStart.format('MM/DD/YYYY')} &mdash; ${visibleEnd.format('MM/DD/YYYY')})</em>`);
+      }
     });
   },
 
@@ -45,9 +76,7 @@ window.Admin.Events.new = {
           format: 'MM/DD/YYYY h:mm A'
         },
         minDate: moment().format('MM/DD/YYYY'),
-        showCustomRangeLabel: false,
-        timePicker: true,
-        timePickerIncrement: 30
+        showCustomRangeLabel: false
       })
       .on('apply.daterangepicker', (event, picker) => {
         let startField = 'starts_at',
@@ -62,12 +91,45 @@ window.Admin.Events.new = {
           endField = 'visible_end';
         }
 
-        $(`#event_${startField}`).val(startDate);
-        $(`#event_${endField}`).val(endDate);
+        $(`#event_${startField}`).val(picker.startDate.toISOString());
+        $(`#event_${endField}`).val(picker.endDate.toISOString());
 
         _this._revalidateIfNeeded();
       })
       .on('cancel.daterangepicker', (event, picker) => picker.element.val(''));
+  },
+
+  initModal() {
+    const _this = this;
+
+    $('[data-open="modal"]').on('click', (event) => {
+      $('.modal-title').text('New Event');
+
+      $('.modal-footer')
+        .find('.btn-link')
+        .hide()
+        .find('.btn[type="submit"]').text('Add Event');
+
+      $('#addEvent').modal('show');
+    });
+
+    $('#addEvent').on('hidden.bs.modal', function (event) {
+      const $modal = $(event.target);
+
+      $modal.find('form').trigger('reset');
+      _this._resetSwitchery();
+    });
+  },
+
+  initSwitchery() {
+    $('.js-switch').each(function() {
+      new Switchery($(this)[0], $(this).data());
+    });
+  },
+
+  _resetSwitchery() {
+    $('input.js-switch').siblings().remove();
+    new Switchery($('input.js-switch')[0], $('input.js-switch').data());
   },
 
   _revalidateIfNeeded() {
