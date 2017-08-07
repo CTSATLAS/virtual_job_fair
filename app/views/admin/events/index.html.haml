@@ -33,6 +33,7 @@
               Visibility Schedule
 
             %input#visibility-schedule.form-control(type="text" data-provides="daterangepicker" required)
+            %p.help-block Show the event on the website between these dates
 
           = f.input :visible_start, as: :hidden
           = f.input :visible_end, as: :hidden
@@ -43,6 +44,7 @@
               Event Dates
 
             %input#event-dates.form-control(type="text" data-provides="daterangepicker" required)
+            %p.help-block The date range of the actual event
 
           = f.input :starts_at, as: :hidden
           = f.input :ends_at, as: :hidden
