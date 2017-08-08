@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  rolify
 
   has_one :employer_profile
   has_one :jobseeker_profile
@@ -10,4 +11,15 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, confirmation: true, presence: true
   validates :password_confirmation, presence: true
+
+  scope :all_employers, -> { with_role(:employer)  }
+  scope :all_jobseekers, -> { with_role(:jobseeker)  }
+
+  def profile
+    if has_role? :jobseeker
+      jobseeker_profile
+    else
+      employer_profile
+    end
+  end
 end

@@ -1,0 +1,47 @@
+- content_for :page_title { 'Good morning, Kimberly!' }
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        All Job Seekers
+
+        .panel-heading-action
+          = link_to new_admin_jobseeker_path, class: 'btn btn-info' do
+            %i.fa.fa-plus
+            Add a Job Seeker
+
+      .panel-wrapper.collapse.in
+        .panel-body
+          %table.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th First name
+                %th Last name
+                %th Address
+                %th Phone Number
+                %th Registered On
+
+            %tbody
+              - if @jobseekers.present?
+                - @jobseekers.each do |jobseeker|
+                  %tr
+                    %td= jobseeker.profile.first_name
+                    %td= jobseeker.profile.last_name
+                    %td
+                      %address
+                        = jobseeker.profile.address_1
+                        %br
+
+                        - if jobseeker.profile.address_2.present?
+                          = jobseeker.profile.address_2
+                          %br
+
+                        = "#{jobseeker.profile.city}, #{jobseeker.profile.state} #{jobseeker.profile.zipcode}"
+                    %td= jobseeker.profile.phone_number
+                    %td= jobseeker.created_at.strftime('%m/%d/%Y %l:%M%P')
+
+              - else
+                %tr
+                  %td{ colspan: '2' }
+                    %p.text-center There are no Job Seekers at this time

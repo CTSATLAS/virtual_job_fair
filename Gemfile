@@ -20,6 +20,7 @@ gem 'high_voltage', '~> 3.0'
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'rolify', '~> 5.1'
 gem 'rubocop', '~> 0.46.0', require: false
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'simple_form', '~> 3.5'
