@@ -1,0 +1,73 @@
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav slimscrollsidebar">
+        <div class="sidebar-head">
+            <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Navigation</span></h3>
+        </div>
+
+        <ul class="nav" id="side-menu">
+            <li>
+                <%= link_to admin_root_path do %>
+                    <i class="mdi mdi-av-timer fa-fw"></i>
+                    <span class="hide-menu">Dashboard</span>
+                <% end %>
+            </li>
+
+            <li>
+                <%= link_to admin_events_path do %>
+                    <i class="icon-calender fa-fw"></i>
+                    <span class="hide-menu">Event Schedule</span>
+                <% end %>
+            </li>
+
+            <li>
+                <%= link_to '#' do %>
+                    <i class="mdi mdi-account-circle fa-fw" data-icon="v"></i>
+                    <span class="hide-menu">Job Seekers <span class="fa arrow"></span>
+                <% end %>
+
+                <ul class="nav nav-second-level">
+                    <li>
+                        <%= link_to '#' do %>
+                            <i class="mdi mdi-account-multiple fa-fw"></i>
+                            <span class="hide-menu">All Job Seekers</span>
+                        <% end %>
+                    </li>
+
+                    <li>
+                        <%= link_to '#' do %>
+                            <i class="mdi mdi-account-plus fa-fw"></i>
+                            <span class="hide-menu">Add a Job Seeker</span>
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <%= link_to '#' do %>
+                    <i class="mdi mdi-map-marker fa-fw" data-icon="v"></i>
+                    <span class="hide-menu">Employers <span class="fa arrow"></span>
+                <% end %>
+
+                <ul class="nav nav-second-level">
+                    <li>
+                        <%= link_to '#' do %>
+                            <i class="mdi mdi-map-marker-multiple fa-fw"></i>
+                            <span class="hide-menu">All Employers</span>
+                        <% end %>
+                    </li>
+
+                    <li>
+                        <%= link_to '#' do %>
+                            <i class="mdi mdi-map-marker-plus fa-fw"></i>
+                            <span class="hide-menu">Add an Employer</span>
+                        <% end %>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="devider"></li>
+
+            <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li>
+        </ul>
+    </div>
+</div>

@@ -74,9 +74,7 @@ window.App.Users.new = {
 
   revalidateIfNeeded() {
     const $newUserFormValidation = $('#new_user').parsley();
-
     if ($newUserFormValidation.validationResult == null) return;
-
     $newUserFormValidation.validate();
   }
 };

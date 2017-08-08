@@ -1,0 +1,20 @@
+// Base styles
+@import 'base/forms';
+
+// Vendor
+@import 'bootstrap.min';
+@import 'sidebar-nav/sidebar-nav.min';
+@import 'fullcalendar/fullcalendar';
+@import 'bootstrap-daterangepicker/daterangepicker.scss';
+@import 'sweetalert2';
+@import 'switchery/switchery.min';
+// ...
+@import 'ampleadmin/animate';
+@import 'ampleadmin/style';
+@import 'ampleadmin/colors/megna-dark';
+
+// Overrides
+@import 'overrides/modal';
+@import 'overrides/panel';
+
+// Page specific styles

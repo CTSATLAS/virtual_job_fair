@@ -24,5 +24,3 @@
 //= require selectize/dist/js/standalone/selectize.min
 
 //= require app
-
-//= require_tree .

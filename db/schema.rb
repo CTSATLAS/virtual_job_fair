@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731202247) do
+ActiveRecord::Schema.define(version: 20170803173325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20170731202247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_employer_profiles_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "specialty", null: false
+    t.datetime "visible_start", null: false
+    t.datetime "visible_end", null: false
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.boolean "allow_late_registration", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ends_at"], name: "index_events_on_ends_at"
+    t.index ["starts_at"], name: "index_events_on_starts_at"
+    t.index ["visible_end"], name: "index_events_on_visible_end"
+    t.index ["visible_start"], name: "index_events_on_visible_start"
   end
 
   create_table "jobseeker_profiles", force: :cascade do |t|
