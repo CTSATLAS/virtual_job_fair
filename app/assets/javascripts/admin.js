@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery_ujs
 //= require moment/moment
 //= require bootstrap.min
 //= require bootstrap-daterangepicker/daterangepicker
@@ -23,6 +24,8 @@
 //= require fullcalendar/jquery-ui.min
 //= require fullcalendar/fullcalendar.min
 //= require switchery/switchery.min
+//= require sweetalert2
+//= require sweet-alert2-rails
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events

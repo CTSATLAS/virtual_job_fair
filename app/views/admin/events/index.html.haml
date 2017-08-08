@@ -56,6 +56,6 @@
             Allow late registration
 
         .modal-footer
-          = link_to 'Delete Event', admin_event_path(1), method: :delete, class: 'btn btn-link text-danger pull-left', remote: true
+          = link_to 'Delete Event', '#', method: :delete, class: 'btn btn-link text-danger pull-left js-delete-event-link', data: { confirm: 'Are you sure?' }, remote: true
           %button.btn.btn-white(type="button" data-dismiss="modal") Close
           %button.btn.btn-info(type="submit") Add Event

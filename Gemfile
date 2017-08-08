@@ -54,3 +54,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 3.1'
 end
+
+# Assets that won't work with yarn
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'

@@ -5,10 +5,18 @@ window.Admin.Events = window.Admin.Events || {}
 
 window.Admin.Events.new = {
   init() {
+    this.initAjaxEvents();
     this.initCalendar();
     this.initDaterangePicker();
     this.initModal();
     this.initSwitchery();
+  },
+
+  initAjaxEvents() {
+    $(document).on('ajax:success', (event, xhr, status, err) => {
+      $('#calendar').fullCalendar('refetchEvents');
+      $('#addEvent').modal('hide');
+    });
   },
 
   initCalendar() {
@@ -35,6 +43,7 @@ window.Admin.Events.new = {
         $element.on('click', () => {
           $('.modal-title').text(`Edit ${event.title}`);
           $('#event_id').val(event.id);
+          $('.js-delete-event-link').prop('href', `/admin/events/${event.id}`);
           $('#event_title').val(event.title);
           $('#event_specialty').val(event.specialty);
           $('#visibility-schedule').val(`${visibleStart.format('MM/DD/YYYY')} - ${visibleEnd.format('MM/DD/YYYY')}`);

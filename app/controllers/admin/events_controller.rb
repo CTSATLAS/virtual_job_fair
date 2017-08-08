@@ -14,6 +14,15 @@ module Admin
       end
     end
 
+    def destroy
+      event = Event.find(params[:id])
+      event.destroy
+
+      respond_to do |format|
+        format.json { render json: { success: true }, status: :ok }
+      end
+    end
+
     protected
 
     def event_params
