@@ -33,6 +33,32 @@ window.Admin.Events.new = {
       minTime: '08:00:00',
       slotDuration: '00:15:00',
 
+      eventDrop(event, delta, revert) {
+        $.ajax({
+          method: 'PATCH',
+          url: `/admin/events/${event.id}`,
+          data: {
+            event: {
+              starts_at: moment(event.start).toISOString(),
+              ends_at: moment(event.end).toISOString()
+            }
+          }
+        }).fail(() => revert());
+      },
+
+      eventResize(event, delta, revert) {
+        $.ajax({
+          method: 'PATCH',
+          url: `/admin/events/${event.id}`,
+          data: {
+            event: {
+              starts_at: moment(event.start).toISOString(),
+              ends_at: moment(event.end).toISOString()
+            }
+          }
+        }).fail(() => revert());
+      },
+
       eventRender(event, $element) {
         const startsAt = event.start,
           endsAt = event.end,
@@ -44,6 +70,11 @@ window.Admin.Events.new = {
           $('.modal-title').text(`Edit ${event.title}`);
           $('#event_id').val(event.id);
           $('.js-delete-event-link').prop('href', `/admin/events/${event.id}`);
+
+          $('.modal form')
+            .prop('action', `/admin/events/${event.id}`)
+            .find('input[name="_method"]').val('patch');
+
           $('#event_title').val(event.title);
           $('#event_specialty').val(event.specialty);
           $('#visibility-schedule').val(`${visibleStart.format('MM/DD/YYYY')} - ${visibleEnd.format('MM/DD/YYYY')}`);
@@ -82,7 +113,7 @@ window.Admin.Events.new = {
         autoUpdateInput: false,
         locale: {
           cancelLabel: 'Clear',
-          format: 'MM/DD/YYYY h:mm A'
+          format: 'MM/DD/YYYY'
         },
         minDate: moment().format('MM/DD/YYYY'),
         showCustomRangeLabel: false
@@ -90,8 +121,8 @@ window.Admin.Events.new = {
       .on('apply.daterangepicker', (event, picker) => {
         let startField = 'starts_at',
           endField = 'ends_at',
-          startDate = picker.startDate.format('MM/DD/YYYY h:mm A'),
-          endDate = picker.endDate.format('MM/DD/YYYY h:mm A');
+          startDate = picker.startDate.format('MM/DD/YYYY'),
+          endDate = picker.endDate.format('MM/DD/YYYY');
 
         picker.element.val(`${startDate} - ${endDate}`);
 
@@ -112,7 +143,11 @@ window.Admin.Events.new = {
     const _this = this;
 
     $('[data-open="modal"]').on('click', (event) => {
+      event.preventDefault();
+
       $('.modal-title').text('New Event');
+
+      $('input[name="_method"]').val('post');
 
       $('.modal-footer')
         .find('.btn-link')
@@ -148,4 +183,7 @@ window.Admin.Events.new = {
   }
 };
 
-$(() => window.Admin.Events.new.init());
+
+$(document).on('turbolinks:load ready', () => {
+  window.Admin.Events.new.init();
+})

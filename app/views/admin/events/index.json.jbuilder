@@ -8,4 +8,5 @@ json.array! @events do |event|
   json.end event.ends_at
   json.allow_late_registration event.allow_late_registration
   json.editable true
+  json.allDay true
 end

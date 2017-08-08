@@ -29,3 +29,5 @@
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events
+
+//= require turbolinks

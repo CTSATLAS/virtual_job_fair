@@ -1,7 +1,7 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
-$(document).ready(function () {
+$(document).on('turbolinks:load ready', function () {
 
     "use strict";
 
@@ -115,7 +115,7 @@ $(document).ready(function () {
 
         /* ===== Collapse Panels ===== */
 
-        $(document).on('click', panelSelector, function (e) {
+        $(panelSelector).on('click', function (e) {
             e.preventDefault();
             var parent = $(this).closest('.panel'),
                 wrapper = parent.find('.panel-wrapper');
@@ -124,7 +124,7 @@ $(document).ready(function () {
 
         /* ===== Remove Panels ===== */
 
-        $(document).on('click', panelRemover, function (e) {
+        $(panelRemover).on('click', function (e) {
             e.preventDefault();
             var removeParent = $(this).closest('.panel');
 
