@@ -25,7 +25,7 @@ module UsersHelper
     if user.online?
       content_tag :span, nil, class: 'fa fa-circle online'
     else
-      content_tag :span, nil, class: 'fa fa-circle not-online'
+      content_tag :span, nil, class: 'fa fa-circle-o not-online'
 
     end
   end
