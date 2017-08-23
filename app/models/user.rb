@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :password, confirmation: true, presence: true
   validates :password_confirmation, presence: true
 
-  scope :all_employers, -> { with_role(:employer) }
-  scope :all_jobseekers, -> { with_role(:jobseeker) }
+  scope :all_employers, -> { includes(:employer_profile).with_role(:employer) }
+  scope :all_jobseekers, -> { includes(:jobseeker_profile).with_role(:jobseeker) }
 
   delegate :full_name, to: :profile
 
