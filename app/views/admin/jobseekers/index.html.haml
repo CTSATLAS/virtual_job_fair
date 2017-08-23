@@ -20,6 +20,7 @@
                 %th Last name
                 %th Address
                 %th Phone Number
+                %th.text-center Resume
                 %th Registered On
 
             %tbody
@@ -39,6 +40,14 @@
 
                         = "#{jobseeker.profile.city}, #{jobseeker.profile.state} #{jobseeker.profile.zipcode}"
                     %td= jobseeker.profile.phone_number
+
+                    %td.text-center
+                      - if jobseeker.profile.resume?
+                        = link_to jobseeker.profile.resume_url, target: '_blank' do
+                          %i.mdi.mdi-cloud-download
+                      - else
+                        %span.text-muted N/A
+
                     %td= jobseeker.created_at.strftime('%m/%d/%Y %l:%M%P')
 
               - else
