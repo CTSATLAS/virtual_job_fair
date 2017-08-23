@@ -22,6 +22,7 @@
 //= require geocomplete/jquery.geocomplete.min
 //= require jquery.inputmask/dist/jquery.inputmask.bundle
 //= require selectize/dist/js/standalone/selectize.min
+//= require file-input
 
 //= require app
 //= require_tree ./users
