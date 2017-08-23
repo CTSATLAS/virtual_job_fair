@@ -12,14 +12,10 @@ class User < ApplicationRecord
   validates :password, confirmation: true, presence: true
   validates :password_confirmation, presence: true
 
-  scope :all_employers, -> { with_role(:employer)  }
-  scope :all_jobseekers, -> { with_role(:jobseeker)  }
+  scope :all_employers, -> { with_role(:employer) }
+  scope :all_jobseekers, -> { with_role(:jobseeker) }
 
   def profile
-    if has_role? :jobseeker
-      jobseeker_profile
-    else
-      employer_profile
-    end
+    has_role?(:jobseeker) ? jobseeker_profile : employer_profile
   end
 end
