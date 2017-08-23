@@ -9,4 +9,8 @@ class JobseekerProfile < ApplicationRecord
                         :career_objectives, :interests_and_hobbies, :education
 
   validates :zipcode, presence: true, numericality: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

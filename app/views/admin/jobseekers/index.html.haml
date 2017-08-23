@@ -16,8 +16,7 @@
           %table.table.table-bordered.table-striped
             %thead
               %tr
-                %th First name
-                %th Last name
+                %th Name
                 %th Address
                 %th Phone Number
                 %th.text-center Resume
@@ -27,8 +26,10 @@
               - if @jobseekers.present?
                 - @jobseekers.each do |jobseeker|
                   %tr
-                    %td= jobseeker.profile.first_name
-                    %td= jobseeker.profile.last_name
+                    %td
+                      = display_online_status(jobseeker)
+                      = jobseeker.full_name
+
                     %td
                       %address
                         = jobseeker.profile.address_1
@@ -52,5 +53,5 @@
 
               - else
                 %tr
-                  %td{ colspan: '2' }
+                  %td{ colspan: '4' }
                     %p.text-center There are no Job Seekers at this time

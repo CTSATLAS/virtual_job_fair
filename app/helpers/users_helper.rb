@@ -20,4 +20,13 @@ module UsersHelper
       raw "If you are #{opposite_account_type} and you want to create an account, #{link_to('click here', registration_link, class: 'alert-link')}"
     end
   end
+
+  def display_online_status(user)
+    if user.online?
+      content_tag :span, nil, class: 'fa fa-circle online'
+    else
+      content_tag :span, nil, class: 'fa fa-circle-o not-online'
+
+    end
+  end
 end

@@ -15,6 +15,12 @@ class User < ApplicationRecord
   scope :all_employers, -> { with_role(:employer) }
   scope :all_jobseekers, -> { with_role(:jobseeker) }
 
+  delegate :full_name, to: :profile
+
+  def online?
+    current_sign_in_at > 30.minutes.ago
+  end
+
   def profile
     has_role?(:jobseeker) ? jobseeker_profile : employer_profile
   end
