@@ -26,8 +26,13 @@
 //= require switchery/switchery.min
 //= require sweetalert2
 //= require sweet-alert2-rails
+//= require datatables/jquery.dataTables.min
+//= require datatables/dataTables.buttons.min
+//= require datatables/jszip.min
+//= require datatables/buttons.html5.min
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events
+//= require_tree ./admin/jobseekers
 
 //= require turbolinks
