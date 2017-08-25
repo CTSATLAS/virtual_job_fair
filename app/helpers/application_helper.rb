@@ -3,11 +3,11 @@ module ApplicationHelper
     hour = Time.now.strftime('%H').to_i
 
     if hour < 12
-      "Good morning, Kim!"
+      'Good morning, Kim!'
     elsif hour > 12 && hour < 17
-      "Good afternoon, Kim!"
+      'Good afternoon, Kim!'
     else
-      "Good evening, Kim!"
+      'Good evening, Kim!'
     end
   end
 
