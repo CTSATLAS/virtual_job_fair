@@ -119,6 +119,8 @@ GEM
       sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     hamlit (2.8.4)
       temple (>= 0.8.0)
       thor
@@ -313,6 +315,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.8)
   flutie (~> 2.0)
   font-awesome-sass (~> 4.7)
+  gretel (~> 3.0)
   hamlit-rails (~> 0.2)
   high_voltage (~> 3.0)
   jbuilder (~> 2.7)
@@ -342,4 +345,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
