@@ -1,6 +1,3 @@
-<!-- ============================================================== -->
-<!-- Topbar header - style you can find in pages.scss -->
-<!-- ============================================================== -->
 <nav class="navbar navbar-default navbar-static-top m-b-0">
     <div class="navbar-header">
         <div class="top-left-part">
@@ -87,14 +84,16 @@
 
             <li class="dropdown">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-                    <%= image_tag 'admin/users/sonu.jpg', class: 'img-circle', width: 36 %>
+                    <%= gravatar_tag 'brandon@brandoncordell.com', size: 36 %>
                     <b class="hidden-xs">Steave</b><span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu dropdown-user">
                     <li>
                         <div class="dw-user-box">
-                            <div class="u-img"><%= image_tag 'admin/users/sonu.jpg', class: 'img-circle' %></div>
+                            <div class="u-img">
+                              <%= gravatar_tag 'brandon@brandoncordell.com', size: 80 %>
+                            </div>
 
                             <div class="u-text">
                                 <h4>Steave Jobs</h4>

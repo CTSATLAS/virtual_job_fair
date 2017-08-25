@@ -29,4 +29,10 @@ module UsersHelper
 
     end
   end
+
+  def gravatar_tag(email, size: 32, image_class: 'img-circle')
+    hash = Digest::MD5.hexdigest(email.strip.downcase)
+
+    content_tag :img, nil, class: image_class, src: "https://www.gravatar.com/avatar/#{hash}?r=g&d=identicon&s=#{size}"
+  end
 end
