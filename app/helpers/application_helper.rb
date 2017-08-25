@@ -1,4 +1,16 @@
 module ApplicationHelper
+  def greeting
+    hour = Time.now.strftime('%H').to_i
+
+    if hour < 12
+      "Good morning, Kim!"
+    elsif hour > 12 && hour < 17
+      "Good afternoon, Kim!"
+    else
+      "Good evening, Kim!"
+    end
+  end
+
   def us_states
     [
       %w(Alabama AL),
