@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts '===== Adding default admins ====='
+
+brandon = User.where(email: 'brandonc@ctsfla.com').first_or_create do |user|
+  user.password = 'Scuba***'
+  user.password_confirmation = 'Scuba***'
+end
+brandon.save!
+brandon.add_role :admin unless brandon.has_role? :admin
