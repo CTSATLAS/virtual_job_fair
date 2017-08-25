@@ -10,6 +10,7 @@ gem 'rails', '~> 5.1.0.rc1'
 # gem 'capistrano-rails', group: :development
 gem 'babel-transpiler'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'cancancan', '~> 2.0'
 gem 'carrierwave', '~> 1.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.2'
