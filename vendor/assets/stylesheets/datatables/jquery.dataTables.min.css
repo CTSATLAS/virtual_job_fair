@@ -450,3 +450,10 @@ table.dataTable td {
     }
 }
 
+
+a.dt-button:hover {
+  background: #0d76bd !important;
+  border: 1px solid #0d76bd !important;
+  color: #fff !important;
+  opacity: .8;
+}
