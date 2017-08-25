@@ -114,7 +114,12 @@
 
                     <li role="separator" class="divider"></li>
 
-                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                    <li>
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        <i class="fa fa-power-off"></i>
+                        Logout
+                      <% end %>
+                    </li>
                 </ul>
             </li>
         </ul>
