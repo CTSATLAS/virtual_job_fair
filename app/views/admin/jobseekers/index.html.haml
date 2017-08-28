@@ -21,6 +21,7 @@
                 %th Phone Number
                 %th.text-center Resume
                 %th Registered On
+                %th.dt-center
 
             %tbody
               - if @jobseekers.present?
@@ -50,6 +51,30 @@
                         %span.text-muted N/A
 
                     %td= jobseeker.created_at.strftime('%m/%d/%Y %l:%M%P')
+                    %td.dt-center
+                      .btn-group
+                        %button.btn.btn-default{type: 'button'} Manage
+                        %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                          %span.caret
+                          %span.sr-only Toggle dropdown
+
+                        %ul.dropdown-menu.dropdown-menu-right
+                          %li
+                            = link_to '#' do
+                              %i.mdi.mdi-account-edit.fa-fw
+                              Edit Jobseeker
+
+                          %li
+                            = link_to masquerade_path(jobseeker), data: { turbolinks: false } do
+                              %i.mdi.mdi-account-switch.fa-fw
+                              Become Jobseeker
+
+                          %li.divider
+
+                          %li
+                            = link_to '#', class: 'text-danger' do
+                              %i.mdi.mdi-account-remove.fa-fw
+                              Delete Jobseeker
 
               - else
                 %tr

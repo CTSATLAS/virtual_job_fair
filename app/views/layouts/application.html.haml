@@ -21,6 +21,12 @@
 
     %title Virtual Job Fair
   %body{ class: body_class }
+    - if user_masquerade?
+      .alert.alert-warning.text-center
+        %strong Heads up!
+        You are currently masquerading as another user.
+        = link_to 'Return to admin dashboard', back_masquerade_path(current_user), class: 'alert-link'
+
     .wrapper
       = render 'navbar'
       = render 'flash_messages'

@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'jobseekers/index'
-  end
-
   devise_for :users, controllers: {
+    masquerades: 'admin/masquerades',
     registrations: 'users/registrations'
   }
 
@@ -18,5 +15,6 @@ Rails.application.routes.draw do
 
     resources :events
     resources :jobseekers
+    resources :users
   end
 end
