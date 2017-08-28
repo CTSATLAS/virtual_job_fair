@@ -1,0 +1,86 @@
+- breadcrumb :users
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        All Administrators
+
+        .panel-heading-action
+          = link_to '#', class: 'btn btn-info', 'data-open': 'modal' do
+            %i.fa.fa-plus
+            Add an Administrator
+
+      .panel-wrapper.collapse.in
+        .panel-body
+          %table#users.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th Name
+                %th Email
+                %th.dt-center
+
+            %tbody
+              - @admins.each do |admin|
+                %tr(data-id="#{admin.id}" data-first-name="#{admin.first_name}" data-last-name="#{admin.last_name}" data-email="#{admin.email}")
+                  %td= admin.full_name
+                  %td= admin.email
+                  %td.dt-center
+                    .btn-group
+                      %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                        Manage
+                        %span.caret
+                        %span.sr-only Toggle dropdown
+
+                      %ul.dropdown-menu.dropdown-menu-right
+                        - if current_user.id == admin.id
+                          - klass = 'disabled'
+                        
+                        %li(class="#{klass}")
+                          = link_to '#', class: 'js-edit-user-link' do
+                            %i.mdi.mdi-account-edit.fa-fw
+                            Edit Administrator
+
+                        %li.divider
+
+                        %li
+                          = link_to admin_user_path(admin), method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?', text: 'This action can\'t be undone.' }, remote: true do
+                            %i.mdi.mdi-account-remove.fa-fw
+                            Delete Administrator
+
+.modal.fade.none-border#addUser
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+        %h4.modal-title New Administrator
+
+      = simple_form_for [:admin, User.new], html: { class: 'form-vertical', 'data-parsley-validate': '' }, remote: true do |f|
+        %input{name: '_method', type: 'hidden', value: 'post'}
+
+        = f.input :id, as: :hidden
+
+        .modal-body
+          %fieldset
+            %legend Profile Details
+
+            .row
+              .col-md-6
+                = f.input :first_name, required: true
+              .col-md-6
+                = f.input :last_name, required: true
+
+          %fieldset
+            %legend Account Details
+
+            = f.input :email
+
+            .row
+              .col-md-6
+                = f.input :password
+              .col-md-6
+                = f.input :password_confirmation
+
+        .modal-footer
+          %button.btn.btn-white(type="button" data-dismiss="modal") Close
+          %button.btn.btn-info(type="submit") Add Administrator

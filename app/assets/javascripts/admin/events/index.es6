@@ -147,7 +147,9 @@ window.Admin.Events.new = {
 
       $('.modal-title').text('New Event');
 
-      $('input[name="_method"]').val('post');
+      $('#addEvent form')
+        .prop('action', '/admin/users')
+        .find('input[name="_method"]').val('post');
 
       $('.modal-footer')
         .find('.btn-link')
@@ -158,9 +160,13 @@ window.Admin.Events.new = {
     });
 
     $('#addEvent').on('hidden.bs.modal', function (event) {
-      const $modal = $(event.target);
+      const $modalForm = $(event.target).find('form');
 
-      $modal.find('form').trigger('reset');
+      $modalForm
+        .trigger('reset')
+        .parsley()
+        .reset();
+
       _this._resetSwitchery();
     });
   },

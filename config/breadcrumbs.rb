@@ -2,6 +2,15 @@ crumb :root do
   link 'Dashboard', admin_root_path
 end
 
+crumb :users do
+  link 'Administrators', admin_users_path
+end
+
+crumb :new_user do
+  link 'New Administrator', new_admin_user_path
+  parent :users
+end
+
 crumb :events do
   link 'Event Schedule', admin_events_path
 end

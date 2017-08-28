@@ -27,26 +27,19 @@
             </li>
 
             <li>
-                <%= link_to '#' do %>
+                <%= link_to '/doesnt-exist-yet' do %>
                     <i class="mdi mdi-map-marker fa-fw" data-icon="v"></i>
-                    <span class="hide-menu">Employers <span class="fa arrow"></span>
+                    <span class="hide-menu">Employers</span>
                 <% end %>
+            </li>
 
-                <ul class="nav nav-second-level">
-                    <li>
-                        <%= link_to '#' do %>
-                            <i class="mdi mdi-map-marker-multiple fa-fw"></i>
-                            <span class="hide-menu">All Employers</span>
-                        <% end %>
-                    </li>
+            <li class="devider"></li>
 
-                    <li>
-                        <%= link_to '#' do %>
-                            <i class="mdi mdi-map-marker-plus fa-fw"></i>
-                            <span class="hide-menu">Add an Employer</span>
-                        <% end %>
-                    </li>
-                </ul>
+            <li>
+                <%= link_to admin_users_path do %>
+                    <i class="mdi mdi-account-settings-variant fa-fw"></i>
+                    <span class="hide-menu">Administrators</span>
+                <% end %>
             </li>
 
             <li class="devider"></li>

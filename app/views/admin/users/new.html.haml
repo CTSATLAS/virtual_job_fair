@@ -1,0 +1,15 @@
+- breadcrumb :new_user
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        New Administrator
+
+        .panel-heading-action
+          = link_to admin_users_path, class: 'btn btn-info' do
+            %i.fa.fa-chevron-left
+            Back
+
+      .panel-wrapper.collapse.in
+        .panel-body
