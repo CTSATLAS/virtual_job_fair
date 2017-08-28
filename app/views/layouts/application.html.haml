@@ -24,7 +24,7 @@
     - if user_masquerade?
       .alert.alert-warning.text-center
         %strong Heads up!
-        You are currently masquerading as another user.
+        = "You are currently masquerading as #{current_user.full_name}."
         = link_to 'Return to admin dashboard', back_masquerade_path(current_user), class: 'alert-link'
 
     .wrapper
