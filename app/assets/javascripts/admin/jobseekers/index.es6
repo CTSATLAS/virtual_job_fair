@@ -14,6 +14,10 @@ window.Admin.Jobseekers.new = {
         'csvHtml5', 'excelHtml5'
       ],
       columnDefs: [{
+        targets: 3,
+        searchable: false,
+        sortable: false
+      }, {
         targets: 5,
         searchable: false,
         sortable: false,

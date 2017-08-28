@@ -19,7 +19,7 @@
                 %th Name
                 %th Address
                 %th Phone Number
-                %th.text-center Resume
+                %th.dt-center Resume
                 %th Registered On
                 %th.dt-center
 
@@ -43,7 +43,7 @@
                         = "#{jobseeker.profile.city}, #{jobseeker.profile.state} #{jobseeker.profile.zipcode}"
                     %td= jobseeker.profile.phone_number
 
-                    %td.text-center
+                    %td.dt-center
                       - if jobseeker.profile.resume?
                         = link_to jobseeker.profile.resume_url, target: '_blank' do
                           %i.mdi.mdi-cloud-download
