@@ -4,7 +4,7 @@ module ApplicationHelper
 
     if hour < 12
       'Good morning, Kim!'
-    elsif hour > 12 && hour < 17
+    elsif hour >= 12 && hour < 17
       'Good afternoon, Kim!'
     else
       'Good evening, Kim!'
