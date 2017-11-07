@@ -8,7 +8,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :employer_profile
   accepts_nested_attributes_for :jobseeker_profile
 
-  validates :email, presence: true
+  validates_presence_of :first_name, :last_name, :email
+
   validates :password, confirmation: true, presence: true
   validates :password_confirmation, presence: true
 
@@ -17,11 +18,7 @@ class User < ApplicationRecord
   scope :all_jobseekers, -> { includes(:jobseeker_profile).with_role(:jobseeker) }
 
   def full_name
-    if has_role? :admin
-      "#{first_name} #{last_name}"
-    else
-      profile.full_name
-    end
+    "#{first_name} #{last_name}"
   end
 
   def online?
