@@ -8,8 +8,11 @@
 puts '===== Adding default admins ====='
 
 brandon = User.where(email: 'brandonc@ctsfla.com').first_or_create do |user|
+  user.first_name = 'Brandon'
+  user.last_name = 'Cordell'
   user.password = 'Scuba***'
   user.password_confirmation = 'Scuba***'
 end
+
 brandon.save!
 brandon.add_role :admin unless brandon.has_role? :admin
