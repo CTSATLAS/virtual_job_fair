@@ -12,16 +12,16 @@ window.Admin.Users.new = {
   
   initDatatables() {
     $('#users').DataTable({
-      buttons: [
-        'csvHtml5', 'excelHtml5'
-      ],
+      dom: 'Bfrtip',
+
+      buttons: ['csvHtml5', 'excelHtml5'],
+
       columnDefs: [{
         targets: 2,
         searchable: false,
         sortable: false,
         width: '103px'
-      }],
-      dom: 'Bfrtip'
+      }]      
     });
   },
 
@@ -29,7 +29,7 @@ window.Admin.Users.new = {
     const _this = this,
       $addUserBtn = $('#addUser');
 
-    $('[data-open="modal"]').on('click', (event) => {
+    $('[data-open="users-modal"]').on('click', (event) => {
       event.preventDefault();
 
       $('.modal-title').text('New Administrator');

@@ -142,13 +142,13 @@ window.Admin.Events.new = {
   initModal() {
     const _this = this;
 
-    $('[data-open="modal"]').on('click', (event) => {
+    $('[data-open="event-modal"]').on('click', (event) => {
       event.preventDefault();
 
       $('.modal-title').text('New Event');
 
       $('#addEvent form')
-        .prop('action', '/admin/users')
+        .prop('action', '/admin/events')
         .find('input[name="_method"]').val('post');
 
       $('.modal-footer')

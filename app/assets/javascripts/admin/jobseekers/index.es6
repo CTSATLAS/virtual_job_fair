@@ -10,9 +10,10 @@ window.Admin.Jobseekers.new = {
   
   initDatatables() {
     $('#jobseekers').DataTable({
-      buttons: [
-        'csvHtml5', 'excelHtml5'
-      ],
+      dom: 'Bfrtip',
+
+      buttons: ['csvHtml5', 'excelHtml5'],
+
       columnDefs: [{
         targets: 3,
         searchable: false,
@@ -22,8 +23,7 @@ window.Admin.Jobseekers.new = {
         searchable: false,
         sortable: false,
         width: '103px'
-      }],
-      dom: 'Bfrtip',
+      }]
     });
   }
 };
