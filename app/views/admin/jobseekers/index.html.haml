@@ -28,8 +28,7 @@
                 - @jobseekers.each do |jobseeker|
                   %tr
                     %td
-                      =# display_online_status(jobseeker)
-                      %span.fa.fa-circle.online(data-toggle="tooltip" data-placement="top" title="Test tooltip")
+                      = display_online_status(jobseeker)
                       = jobseeker.full_name
 
                     %td
