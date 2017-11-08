@@ -28,7 +28,8 @@
                 - @jobseekers.each do |jobseeker|
                   %tr
                     %td
-                      = display_online_status(jobseeker)
+                      =# display_online_status(jobseeker)
+                      %span.fa.fa-circle.online(data-toggle="tooltip" data-placement="top" title="Test tooltip")
                       = jobseeker.full_name
 
                     %td
@@ -80,3 +81,6 @@
                 %tr
                   %td{ colspan: '6' }
                     %p.text-center There are no Job Seekers at this time
+
+:javascript
+  $('[data-toggle="tooltip"]').tooltip()

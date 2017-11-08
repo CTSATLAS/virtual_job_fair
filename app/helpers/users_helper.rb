@@ -26,7 +26,6 @@ module UsersHelper
       content_tag :span, nil, class: 'fa fa-circle online'
     else
       content_tag :span, nil, class: 'fa fa-circle-o not-online'
-
     end
   end
 

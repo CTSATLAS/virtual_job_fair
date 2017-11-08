@@ -11,9 +11,14 @@ Messenger.options =
 
   interceptFlashMessages: ->
     $('.flash').each ->
+      type = $(this).data('type')
+
+      type = 'success' if type == 'notice'
+
       Messenger().post
         message: $(this).text()
-        type: $(this).data('type')
+        showCloseButton: true
+        type: type
 
   initDatepicker: ->
     ageLimitDate = moment().subtract(14, 'years')

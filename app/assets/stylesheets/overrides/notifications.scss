@@ -1,0 +1,14 @@
+.messenger.messenger-fixed.messenger-theme-block {
+  //right: 20px !important;
+  //top: 20px !important;
+
+  .messenger-message {
+    border-radius: 0 !important;
+    padding: 1rem 1rem 0 !important;
+
+    .messenger-close {
+      left: -1rem !important;
+      top: -6px !important;
+    }
+  }
+}
