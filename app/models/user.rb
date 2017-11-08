@@ -8,8 +8,6 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :employer_profile
   accepts_nested_attributes_for :jobseeker_profile
 
-  validates_presence_of :first_name, :last_name, :email
-
   validates :password, confirmation: true, presence: true
   validates :password_confirmation, presence: true
 
