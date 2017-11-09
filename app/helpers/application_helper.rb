@@ -1,13 +1,14 @@
 module ApplicationHelper
   def greeting
     hour = Time.now.strftime('%H').to_i
+    first_name = current_user.first_name
 
     if hour < 12
-      'Good morning, Kim!'
+      "Good morning, #{first_name}!"
     elsif hour >= 12 && hour < 17
-      'Good afternoon, Kim!'
+      "Good afternoon, #{first_name}!"
     else
-      'Good evening, Kim!'
+      "Good evening, #{first_name}!"
     end
   end
 
