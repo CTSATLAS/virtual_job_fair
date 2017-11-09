@@ -35,6 +35,7 @@
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events
+//= require_tree ./admin/employers
 //= require_tree ./admin/jobseekers
 //= require_tree ./admin/users
 

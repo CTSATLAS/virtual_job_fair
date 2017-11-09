@@ -57,3 +57,36 @@ unless JobseekerProfile.count > 0
     user.add_role :jobseeker
   end
 end
+
+unless EmployerProfile.count > 0
+  puts '===== No employers found. Adding employers ====='
+
+  100.times do
+    user = User.new
+    user.first_name = FFaker::Name.first_name
+    user.last_name = FFaker::Name.last_name
+    user.email = "#{user.first_name}.#{user.last_name}@example.com"
+    user.password = 'asd123'
+    user.password_confirmation = 'asd123'
+    user.current_sign_in_at = DateTime.now
+    user.last_sign_in_at = DateTime.now
+
+    user.build_employer_profile(
+        company_name: FFaker::Company.unique.name,
+        company_description: FFaker::Book.description,
+        address_1: FFaker::AddressUS.street_address,
+        city: FFaker::AddressUS.city,
+        county: 'Hernando',
+        state: FFaker::AddressUS.state_abbr,
+        zipcode: FFaker::AddressUS.zip_code[0..4],
+        phone_number: "(#{FFaker::PhoneNumber.area_code}) #{FFaker::PhoneNumber.exchange_code}-#{rand(1001..9999)}",
+        fax_number: "(#{FFaker::PhoneNumber.area_code}) #{FFaker::PhoneNumber.exchange_code}-#{rand(1001..9999)}",
+        website: FFaker::Internet.http_url,
+        contact_first_name: FFaker::Name.first_name,
+        contact_last_name: FFaker::Name.last_name,
+    )
+
+    user.save!
+    user.add_role :employer
+  end
+end
