@@ -2,6 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :masqueradable
   rolify
 
+  has_many :job_listings
   has_one :employer_profile
   has_one :jobseeker_profile
 

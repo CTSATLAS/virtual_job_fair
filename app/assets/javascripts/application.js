@@ -25,4 +25,5 @@
 //= require file-input
 
 //= require app
+//= require_tree ./job_listings
 //= require_tree ./users

@@ -1,11 +1,7 @@
 .container
   .row
-    .col-md-3
-      .panel.panel-default
-        .list-group
-          = link_to 'Dashboard', '#', class: 'list-group-item active'
-          = link_to 'Job Listings', '#', class: 'list-group-item'
-          = link_to 'Messages', '#', class: 'list-group-item'
+    - role = current_user.has_role?(:jobseeker) ? 'jobseeker' : 'employer'
+    = render "dashboard/shared/#{role}_sidebar"
 
     .col-md-9
-      %h1 Dashboard
+      %h2 Dashboard

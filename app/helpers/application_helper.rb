@@ -12,6 +12,13 @@ module ApplicationHelper
     end
   end
 
+  def link_to_class(klass, active_if:)
+    controller_from_path = Rails.application.routes.recognize_path(active_if)[:controller]
+
+    klass << ' active' if controller_name == controller_from_path
+    klass
+  end
+
   def us_states
     [
       %w(Alabama AL),

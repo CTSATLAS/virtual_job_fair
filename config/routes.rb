@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard', to: 'dashboard#index', as: :dashboard
+
+  resources :job_listings
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107150555) do
+ActiveRecord::Schema.define(version: 20171109170450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,39 @@ ActiveRecord::Schema.define(version: 20171107150555) do
     t.index ["starts_at"], name: "index_events_on_starts_at"
     t.index ["visible_end"], name: "index_events_on_visible_end"
     t.index ["visible_start"], name: "index_events_on_visible_start"
+  end
+
+  create_table "job_listings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.string "category"
+    t.text "duties_and_responsibilities"
+    t.string "age_group"
+    t.integer "status"
+    t.integer "number_of_openings"
+    t.string "employment_term"
+    t.integer "hours_per_week"
+    t.boolean "flex_schedule"
+    t.boolean "travel_required"
+    t.text "how_to_apply"
+    t.string "compensation_type"
+    t.string "compensation_amount"
+    t.boolean "medical"
+    t.boolean "dental"
+    t.boolean "vacation"
+    t.boolean "holidays"
+    t.boolean "education"
+    t.string "dress_code"
+    t.string "dress_code_other"
+    t.string "education_requirements"
+    t.string "specialized_training"
+    t.string "amount_of_experience"
+    t.string "specialized_experience"
+    t.integer "typing_speed"
+    t.string "license_requirements"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_job_listings_on_user_id"
   end
 
   create_table "jobseeker_profiles", force: :cascade do |t|
@@ -113,5 +146,6 @@ ActiveRecord::Schema.define(version: 20171107150555) do
   end
 
   add_foreign_key "employer_profiles", "users"
+  add_foreign_key "job_listings", "users"
   add_foreign_key "jobseeker_profiles", "users"
 end

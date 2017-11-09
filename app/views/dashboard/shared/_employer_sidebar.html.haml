@@ -1,0 +1,12 @@
+.col-md-3
+  .panel.panel-default
+    .list-group
+      = link_to 'Dashboard', dashboard_path, class: link_to_class('list-group-item', active_if: dashboard_path)
+
+      = link_to job_listings_path, class: link_to_class('list-group-item', active_if: job_listings_path) do
+        Job Listings
+        %span.badge= current_user.job_listings.count
+
+      = link_to root_path, class: link_to_class('list-group-item', active_if: root_path) do
+        Messages
+        %span.badge 0

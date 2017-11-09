@@ -1,0 +1,12 @@
+.container
+  .row
+    - role = current_user.has_role?(:jobseeker) ? 'jobseeker' : 'employer'
+    = render "dashboard/shared/#{role}_sidebar"
+
+    .col-md-9
+      .page-header
+        .btn-toolbar.pull-right
+          .btn-group
+            = link_to 'New Job Listing', new_job_listing_path, class: 'btn btn-primary'
+
+        %h2 Your Job Listings

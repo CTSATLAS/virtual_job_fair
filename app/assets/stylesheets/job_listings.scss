@@ -1,0 +1,13 @@
+@import 'base/variables';
+@import 'bootstrap/variables';
+
+body.job_listings {
+  .page-header {
+    margin-top: 0;
+
+    h2 {
+      color: $brand-primary;
+      margin-top: 0;
+    }
+  }
+}
