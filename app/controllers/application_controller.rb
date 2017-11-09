@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     if resource.has_role? :admin
       admin_root_path
     else
-      root_path
+      dashboard_path
     end
   end
 end
