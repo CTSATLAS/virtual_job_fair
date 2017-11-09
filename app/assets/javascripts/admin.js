@@ -11,13 +11,12 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery
-//= require jquery_ujs
 //= require moment/moment
 //= require bootstrap.min
 //= require bootstrap-daterangepicker/daterangepicker
 //= require parsley.config
 //= require parsleyjs
+//= require file-input
 
 //= require sidebar-nav/sidebar-nav.min
 //= require jquery.slimscroll
@@ -30,6 +29,9 @@
 //= require datatables/dataTables.buttons.min
 //= require datatables/jszip.min
 //= require datatables/buttons.html5.min
+//= require summernote
+//= require selectize/dist/js/standalone/selectize.min
+//= require jquery.inputmask/dist/jquery.inputmask.bundle
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events

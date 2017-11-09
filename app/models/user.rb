@@ -8,8 +8,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :employer_profile
   accepts_nested_attributes_for :jobseeker_profile
 
-  validates :password, confirmation: true, presence: true
-  validates :password_confirmation, presence: true
+  validates_presence_of :first_name, :last_name, :email
+
+  validates :password, confirmation: true, presence: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
 
   scope :all_administrators, -> { with_role(:admin) }
   scope :all_employers, -> { includes(:employer_profile).with_role(:employer) }
@@ -25,5 +27,11 @@ class User < ApplicationRecord
 
   def profile
     has_role?(:jobseeker) ? jobseeker_profile : employer_profile
+  end
+
+  private
+
+  def password_required?
+    new_record? ? super : false
   end
 end

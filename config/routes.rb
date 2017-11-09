@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     resources :jobseekers
     resources :users
   end
+
+  get 'dashboard', to: 'dashboard#index', as: :dashboard
 end

@@ -24,12 +24,12 @@
                 %th.dt-center
 
             %tbody
+
               - if @jobseekers.present?
                 - @jobseekers.each do |jobseeker|
                   %tr
                     %td
-                      =# display_online_status(jobseeker)
-                      %span.fa.fa-circle.online(data-toggle="tooltip" data-placement="top" title="Test tooltip")
+                      = display_online_status(jobseeker)
                       = jobseeker.full_name
 
                     %td
@@ -61,7 +61,7 @@
 
                         %ul.dropdown-menu.dropdown-menu-right
                           %li
-                            = link_to '#' do
+                            = link_to edit_admin_jobseeker_path(jobseeker) do
                               %i.mdi.mdi-account-edit.fa-fw
                               Edit Jobseeker
 

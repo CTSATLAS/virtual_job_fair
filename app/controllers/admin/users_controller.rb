@@ -28,6 +28,7 @@ module Admin
     def destroy
       admin = User.find(params[:id])
       admin.destroy
+
       redirect_to admin_users_path
     end
 

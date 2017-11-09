@@ -12,7 +12,19 @@ window.Admin.Jobseekers.new = {
     $('#jobseekers').DataTable({
       dom: 'Bfrtip',
 
-      buttons: ['csvHtml5', 'excelHtml5'],
+      buttons: [{
+        extend: 'csvHtml5',
+        exportOptions: {
+          columns: [0, 1, 2, 4]
+        }
+      }, {
+        extend: 'excelHtml5',
+        exportOptions: {
+          columns: [0, 1, 2, 4]
+        }
+      }],
+
+      // buttons: ['csvHtml5', 'excelHtml5'],
 
       columnDefs: [{
         targets: 3,
@@ -28,6 +40,4 @@ window.Admin.Jobseekers.new = {
   }
 };
 
-$(document).on('turbolinks:load ready', () => {
-  window.Admin.Jobseekers.new.init();
-})
+$(document).on('turbolinks:load', () => window.Admin.Jobseekers.new.init());

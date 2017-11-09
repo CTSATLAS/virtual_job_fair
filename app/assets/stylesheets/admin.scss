@@ -10,6 +10,9 @@
 @import 'switchery/switchery.min';
 @import 'datatables/jquery.dataTables.min';
 @import 'datatables/buttons.dataTables.min';
+@import 'selectize/dist/css/selectize';
+@import 'selectize/dist/css/selectize.bootstrap3';
+@import 'summernote';
 // ...
 @import 'ampleadmin/animate';
 @import 'ampleadmin/style';
@@ -19,6 +22,7 @@
 @import 'overrides/dropdown';
 @import 'overrides/modal';
 @import 'overrides/panel';
+@import 'overrides/selectize';
 @import 'overrides/table';
 
 // Modules

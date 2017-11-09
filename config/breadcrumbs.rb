@@ -19,6 +19,11 @@ crumb :jobseekers do
   link 'Job Seekers', admin_jobseekers_path
 end
 
+crumb :jobseeker do |jobseeker|
+  link jobseeker.full_name, admin_jobseeker_path(jobseeker)
+  parent :jobseekers
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
