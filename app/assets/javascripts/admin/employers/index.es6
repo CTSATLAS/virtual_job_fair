@@ -12,7 +12,17 @@ window.Admin.Employers.new = {
     $('#employers').DataTable({
       dom: 'Bfrtip',
 
-      buttons: ['csvHtml5', 'excelHtml5'],
+      buttons: [{
+        extend: 'csvHtml5',
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4, 5, 6]
+        }
+      }, {
+        extend: 'excelHtml5',
+        exportOptions: {
+          columns: [0, 1, 2, 3, 4, 5, 6]
+        }
+      }],
 
       columnDefs: [{
         targets: 3,
@@ -28,6 +38,4 @@ window.Admin.Employers.new = {
   }
 };
 
-$(document).on('turbolinks:load ready', () => {
-  window.Admin.Employers.new.init();
-})
+$(document).on('turbolinks:load', () => window.Admin.Employers.new.init());
