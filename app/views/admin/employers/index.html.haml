@@ -23,7 +23,7 @@
                 %th Fax Number
                 %th Website
                 %th Registered On
-                %th.dt-center
+                %th.manage
 
             %tbody
               - if @employers.present?
@@ -49,7 +49,7 @@
                       %a{ :href => "#{employer.profile.website}", :title => "#{employer.profile.website}" }#{employer.profile.website}
 
                     %td= employer.created_at.strftime('%m/%d/%Y %l:%M%P')
-                    %td.dt-center
+                    %td.manage
                       .btn-group
                         %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
                           Manage

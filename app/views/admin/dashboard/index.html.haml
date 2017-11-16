@@ -54,6 +54,7 @@
                 %th Name
                 %th Resume
                 %th Registered On
+                %th.manage
 
             %tbody
               - unless @latest_job_seekers.empty?
@@ -71,7 +72,7 @@
                         %span.text-muted N/A
 
                     %td= job_seeker.created_at.strftime('%m/%d/%Y %l:%M%P')
-                    %td.dt-center
+                    %td.manage
                       .btn-group
                         %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
                           Manage
@@ -107,6 +108,7 @@
               %tr
                 %th Company Name
                 %th Registered On
+                %th.manage
 
             %tbody
               - unless @latest_employers.empty?
@@ -115,7 +117,7 @@
                     %td= employer.profile.company_name
                     %td= employer.created_at.strftime('%m/%d/%Y %l:%M%P')
 
-                    %td.dt-center
+                    %td.manage
                       .btn-group
                         %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
                           Manage
