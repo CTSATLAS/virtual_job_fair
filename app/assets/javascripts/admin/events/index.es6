@@ -142,12 +142,14 @@ window.Admin.Events.new = {
   initModal() {
     const _this = this;
 
-    $('[data-open="modal"]').on('click', (event) => {
+    $('[data-open="event-modal"]').on('click', (event) => {
       event.preventDefault();
 
       $('.modal-title').text('New Event');
 
-      $('input[name="_method"]').val('post');
+      $('#addEvent form')
+        .prop('action', '/admin/events')
+        .find('input[name="_method"]').val('post');
 
       $('.modal-footer')
         .find('.btn-link')
@@ -158,9 +160,13 @@ window.Admin.Events.new = {
     });
 
     $('#addEvent').on('hidden.bs.modal', function (event) {
-      const $modal = $(event.target);
+      const $modalForm = $(event.target).find('form');
 
-      $modal.find('form').trigger('reset');
+      $modalForm
+        .trigger('reset')
+        .parsley()
+        .reset();
+
       _this._resetSwitchery();
     });
   },

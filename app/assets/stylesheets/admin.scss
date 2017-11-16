@@ -6,15 +6,26 @@
 @import 'sidebar-nav/sidebar-nav.min';
 @import 'fullcalendar/fullcalendar';
 @import 'bootstrap-daterangepicker/daterangepicker.scss';
-@import 'sweetalert2';
 @import 'switchery/switchery.min';
+@import 'datatables/jquery.dataTables.min';
+@import 'datatables/buttons.dataTables.min';
+@import 'selectize/dist/css/selectize';
+@import 'selectize/dist/css/selectize.bootstrap3';
+@import 'summernote';
 // ...
 @import 'ampleadmin/animate';
 @import 'ampleadmin/style';
 @import 'ampleadmin/colors/megna-dark';
 
 // Overrides
+@import 'overrides/dropdown';
 @import 'overrides/modal';
+@import 'overrides/nav';
 @import 'overrides/panel';
+@import 'overrides/selectize';
+@import 'overrides/table';
+
+// Modules
+@import 'modules/online-status';
 
 // Page specific styles

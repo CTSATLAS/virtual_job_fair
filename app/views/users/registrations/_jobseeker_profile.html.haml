@@ -1,20 +1,20 @@
-= f.simple_fields_for :jobseeker_profile do |j|
+= f.simple_fields_for :job_seeker_profile do |j|
   %fieldset
     %legend
       %h4 Profile Details
 
     .row
       .col-md-6
-        = j.input :first_name
+        = f.input :first_name
       .col-md-6
-        = j.input :last_name
+        = f.input :last_name
 
     .row
       .col-md-8
         = j.input :date_of_birth, as: :string, input_html: { 'data-provide': 'datepicker-date-of-birth', 'data-parsley-trigger': 'input' }
 
       .col-md-4
-        = j.input :gender, collection: JobseekerProfile.genders.keys.map { |g| [g.humanize, g] }, include_blank: true, selected: ''
+        = j.input :gender, collection: JobSeekerProfile.genders.keys.map { |g| [g.humanize, g] }, include_blank: true, selected: ''
 
     = render 'users/geocomplete_address_fields'
 

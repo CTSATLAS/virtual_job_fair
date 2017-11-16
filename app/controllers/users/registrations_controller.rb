@@ -10,11 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    account_type = params[:user].delete(:account_type)
+
     build_resource(sign_up_params)
 
     resource.save
     yield resource if block_given?
     if resource.persisted?
+      resource.add_role account_type.to_sym
+
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
@@ -27,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-      params[:account_type] = params[:user][:account_type]
+      params[:account_type] = account_type
       render :new
     end
   end
@@ -40,6 +44,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         :email,
         :password,
         :password_confirmation,
+        :first_name,
+        :last_name,
         employer_profile_attributes: [
           :company_name,
           :company_description,
@@ -55,9 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           :contact_first_name,
           :contact_last_name
         ],
-        jobseeker_profile_attributes: [
-          :first_name,
-          :last_name,
+        job_seeker_profile_attributes: [
+          :gender,
           :date_of_birth,
           :address_1,
           :address_2,

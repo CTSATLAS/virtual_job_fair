@@ -1,4 +1,24 @@
 module ApplicationHelper
+  def greeting
+    hour = Time.now.strftime('%H').to_i
+    first_name = current_user.first_name
+
+    if hour < 12
+      "Good morning, #{first_name}!"
+    elsif hour >= 12 && hour < 17
+      "Good afternoon, #{first_name}!"
+    else
+      "Good evening, #{first_name}!"
+    end
+  end
+
+  def link_to_class(klass, active_if:)
+    controller_from_path = Rails.application.routes.recognize_path(active_if)[:controller]
+
+    klass << ' active' if controller_name == controller_from_path
+    klass
+  end
+
   def us_states
     [
       %w(Alabama AL),

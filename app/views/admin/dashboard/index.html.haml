@@ -1,0 +1,143 @@
+- breadcrumb :root
+
+.row
+  .col-lg-3.col-sm-6.col-xs-12
+    .white-box
+      %h3.box-title Job Seekers
+
+      %ul.list-inline.two-part
+        %li
+          %i.icon-people.text-info
+        %li.text-right
+          %span.counter= @job_seeker_count
+
+  .col-lg-3.col-sm-6.col-xs-12
+    .white-box
+      %h3.box-title Employers
+
+      %ul.list-inline.two-part
+        %li
+          %i.icon-briefcase.text-primary
+        %li.text-right
+          %span.counter= @employer_count
+
+  .col-lg-3.col-sm-6.col-xs-12
+    .white-box
+      %h3.box-title Job Listings
+
+      %ul.list-inline.two-part
+        %li
+          %i.icon-docs.text-warning
+        %li.text-right
+          %span.counter= @job_listing_count
+
+  .col-lg-3.col-sm-6.col-xs-12
+    .white-box
+      %h3.box-title Messages
+
+      %ul.list-inline.two-part
+        %li
+          %i.icon-bubbles.text-success
+        %li.text-right
+          %span.counter 23
+
+.row
+  .col-md-6.col-sm-12
+    .panel
+      .panel-heading LATEST USERS
+
+      .panel-body
+        .table-responsive
+          %table.table.table-hover.manage-u-table
+            %thead
+              %tr
+                %th Name
+                %th Resume
+                %th Registered On
+                %th.manage
+
+            %tbody
+              - unless @latest_job_seekers.empty?
+                - @latest_job_seekers.each do |job_seeker|
+                  %tr
+                    %td
+                      = display_online_status(job_seeker)
+                      = job_seeker.full_name
+
+                    %td.dt-center
+                      - if job_seeker.profile.resume?
+                        = link_to job_seeker.profile.resume_url, target: '_blank' do
+                          %i.mdi.mdi-cloud-download
+                      - else
+                        %span.text-muted N/A
+
+                    %td= job_seeker.created_at.strftime('%m/%d/%Y %l:%M%P')
+                    %td.manage
+                      .btn-group
+                        %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                          Manage
+                          %span.caret
+                          %span.sr-only Toggle dropdown
+
+                        %ul.dropdown-menu.dropdown-menu-right
+                          %li
+                            = link_to edit_admin_job_seeker_path(job_seeker) do
+                              %i.mdi.mdi-account-edit.fa-fw
+                              Edit Job Seeker
+
+                          %li
+                            = link_to masquerade_path(job_seeker), data: { turbolinks: false } do
+                              %i.mdi.mdi-account-switch.fa-fw
+                              Become Job Seeker
+
+                          %li.divider
+
+                          %li
+                            = link_to '#', class: 'text-danger' do
+                              %i.mdi.mdi-account-remove.fa-fw
+                              Delete Job Seeker
+
+  .col-md-6.col-sm-12
+    .panel
+      .panel-heading LATEST EMPLOYERS
+
+      .panel-body
+        .table-responsive
+          %table.table.table-hover.manage-u-table
+            %thead
+              %tr
+                %th Company Name
+                %th Registered On
+                %th.manage
+
+            %tbody
+              - unless @latest_employers.empty?
+                - @latest_employers.each do |employer|
+                  %tr
+                    %td= employer.profile.company_name
+                    %td= employer.created_at.strftime('%m/%d/%Y %l:%M%P')
+
+                    %td.manage
+                      .btn-group
+                        %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                          Manage
+                          %span.caret
+                          %span.sr-only Toggle dropdown
+
+                        -#%ul.dropdown-menu.dropdown-menu-right
+                          -#%li
+                            -#= link_to edit_admin_jobseeker_path(job_seeker) do
+                              -#%i.mdi.mdi-account-edit.fa-fw
+                              -#Edit job_seeker
+
+                          -#%li
+                            -#= link_to masquerade_path(job_seeker), data: { turbolinks: false } do
+                              -#%i.mdi.mdi-account-switch.fa-fw
+                              -#Become job_seeker
+
+                          -#%li.divider
+
+                          -#%li
+                            -#= link_to '#', class: 'text-danger' do
+                              -#%i.mdi.mdi-account-remove.fa-fw
+                              -#Delete job_seeker

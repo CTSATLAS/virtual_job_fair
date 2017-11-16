@@ -20,54 +20,27 @@
             </li>
 
             <li>
-                <%= link_to '#' do %>
-                    <i class="mdi mdi-account-circle fa-fw" data-icon="v"></i>
-                    <span class="hide-menu">Job Seekers <span class="fa arrow"></span>
+                <%= link_to admin_job_seekers_path do %>
+                    <i class="mdi mdi-account-circle fa-fw"></i>
+                    <span class="hide-menu">Job Seekers</span>
                 <% end %>
-
-                <ul class="nav nav-second-level">
-                    <li>
-                        <%= link_to '#' do %>
-                            <i class="mdi mdi-account-multiple fa-fw"></i>
-                            <span class="hide-menu">All Job Seekers</span>
-                        <% end %>
-                    </li>
-
-                    <li>
-                        <%= link_to '#' do %>
-                            <i class="mdi mdi-account-plus fa-fw"></i>
-                            <span class="hide-menu">Add a Job Seeker</span>
-                        <% end %>
-                    </li>
-                </ul>
             </li>
 
             <li>
-                <%= link_to '#' do %>
+                <%= link_to admin_employers_path do %>
                     <i class="mdi mdi-map-marker fa-fw" data-icon="v"></i>
-                    <span class="hide-menu">Employers <span class="fa arrow"></span>
+                    <span class="hide-menu">Employers</span>
                 <% end %>
-
-                <ul class="nav nav-second-level">
-                    <li>
-                        <%= link_to '#' do %>
-                            <i class="mdi mdi-map-marker-multiple fa-fw"></i>
-                            <span class="hide-menu">All Employers</span>
-                        <% end %>
-                    </li>
-
-                    <li>
-                        <%= link_to '#' do %>
-                            <i class="mdi mdi-map-marker-plus fa-fw"></i>
-                            <span class="hide-menu">Add an Employer</span>
-                        <% end %>
-                    </li>
-                </ul>
             </li>
 
             <li class="devider"></li>
 
-            <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span class="hide-menu">Faqs</span></a></li>
+            <li>
+                <%= link_to admin_users_path do %>
+                    <i class="mdi mdi-account-settings-variant fa-fw"></i>
+                    <span class="hide-menu">Administrators</span>
+                <% end %>
+            </li>
         </ul>
     </div>
 </div>

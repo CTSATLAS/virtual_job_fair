@@ -1,0 +1,116 @@
+.container
+  .row
+    - role = current_user.has_role?(:job_seeker) ? 'job_seeker' : 'employer'
+    = render "dashboard/shared/#{role}_sidebar"
+
+    .col-md-9
+      .page-header
+        .btn-toolbar.pull-right
+          .btn-group
+            = link_to 'Back', job_listings_path, class: 'btn btn-primary'
+
+        %h2 New Job Listing
+
+      = simple_form_for @job_listing, html: { class: 'form-vertical', 'novalidate': '' } do |f|
+        .row
+          .col-md-4
+            = f.input :status, collection: [['Active', 1], ['Draft', 0]], include_blank: false, hint: 'Drafts are not visible to Job Seekers.'
+
+        .row
+          .col-md-9
+            = f.input :title
+          .col-md-3
+            = f.input :employment_term, collection: ['Full-time', 'Part-time', 'Contract', 'Temporary'], include_blank: false
+
+        .row
+          .col-md-3
+            = f.input :category, collection: ['Professional', 'Sales & Marketing', 'Administrative Support', 'Healthcare', 'Service', 'Trade']
+          .col-md-3
+            = f.input :number_of_openings
+          .col-md-6
+            = f.input :age_group, collection: ['14 and over', '16 and over', '18 and over', '21 and over'], include_blank: false, hint: 'This job will only be shown to job seekers in the age group you specify.'
+
+        = f.input :duties_and_responsibilities, wrapper: :wysiwyg, input_html: { 'data-wysiwyg': 'simple' }
+
+        %fieldset
+          %legend
+            %h4 Schedule Details
+
+          .row
+            .col-md-4
+              = f.input :hours_per_week
+            .col-md-4
+              = f.input :flex_schedule, collection: ['No', 'Yes']
+            .col-md-4
+              = f.input :travel_required, collection: ['None', 'Occasional', '25%', '50%', '75%', '100%']
+
+        %fieldset
+          %legend
+            %h4 Compensation Details
+
+          .row
+            .col-md-3
+              = f.input :compensation_type, collection: ['Hourly', 'Salary', 'Commission', 'Draw']
+          .row
+            .col-md-12
+              = f.input :compensation_amount
+
+        %fieldset
+          %legend
+            %h4 Benefit Details
+
+          .row
+            .col-md-4
+              = f.input :medical, collection: ['No', 'Yes']
+            .col-md-4
+              = f.input :dental, collection: ['No', 'Yes']
+            .col-md-4
+              = f.input :vacation, collection: ['No', 'Yes']
+            .col-md-4
+              = f.input :holidays, collection: ['No', 'Yes']
+            .col-md-4
+              = f.input :education, collection: ['No', 'Yes']
+
+        %fieldset
+          %legend
+            %h4 Dress Code Details
+
+          .row
+            .col-md-3
+              = f.input :dress_code, collection: ['Corporate', 'Casual', 'Business Dress']
+
+          .row
+            .col-md-12
+              = f.input :dress_code_other, label: 'Other'
+
+        %fieldset
+          %legend
+            %h4 Education and Experience Details
+
+          = f.input :education_requirements
+
+          .row
+            .col-md-6
+              = f.input :amount_of_experience
+            .col-md-6
+              = f.input :specialized_training
+
+          .row
+            .col-md-6
+              = f.input :specialized_experience
+            .col-md-6
+              = f.input :typing_speed
+
+        %fieldset
+          %legend
+            %h4 License Details
+
+          = f.input :license_requirements
+
+        %fieldset
+          %legend
+            %h4 Application Details
+
+          = f.input :how_to_apply, wrapper: :wysiwyg, input_html: { 'data-wysiwyg': 'simple' }
+
+        = f.submit class: 'btn btn-primary'

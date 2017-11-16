@@ -1,0 +1,83 @@
+
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        All Employers
+
+        .panel-heading-action
+          = link_to new_admin_employer_path, class: 'btn btn-info' do
+            %i.fa.fa-plus
+            Add a Employer
+
+      .panel-wrapper.collapse.in
+        .panel-body
+          %table#employers.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th Company Name
+                %th Contact Name
+                %th Address
+                %th Phone Number
+                %th Fax Number
+                %th Website
+                %th Registered On
+                %th.manage
+
+            %tbody
+              - if @employers.present?
+                - @employers.each do |employer|
+                  %tr
+                    %td
+                      = display_online_status(employer)
+                      = employer.profile.company_name
+                    %td= "#{employer.profile.contact_first_name} #{employer.profile.contact_last_name}"
+                    %td
+                      %address
+                        = employer.profile.address_1
+                        %br
+
+                        - if employer.profile.address_2.present?
+                          = employer.profile.address_2
+                          %br
+
+                        = "#{employer.profile.city}, #{employer.profile.state} #{employer.profile.zipcode}"
+                    %td= employer.profile.phone_number
+                    %td= employer.profile.fax_number
+                    %td
+                      %a{ :href => "#{employer.profile.website}", :title => "#{employer.profile.website}" }#{employer.profile.website}
+
+                    %td= employer.created_at.strftime('%m/%d/%Y %l:%M%P')
+                    %td.manage
+                      .btn-group
+                        %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                          Manage
+                          %span.caret
+                          %span.sr-only Toggle dropdown
+
+                        %ul.dropdown-menu.dropdown-menu-right
+                          %li
+                            = link_to '#' do
+                              %i.mdi.mdi-account-edit.fa-fw
+                              Edit Employer
+
+                          %li
+                            = link_to masquerade_path(employer), data: { turbolinks: false } do
+                              %i.mdi.mdi-account-switch.fa-fw
+                              Become Employer
+
+                          %li.divider
+
+                          %li
+                            = link_to '#', class: 'text-danger' do
+                              %i.mdi.mdi-account-remove.fa-fw
+                              Delete Employer
+
+              - else
+                %tr
+                  %td{ colspan: '6' }
+                    %p.text-center There are no Employers at this time
+
+:javascript
+  $('[data-toggle="tooltip"]').tooltip()

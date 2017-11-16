@@ -1,5 +1,7 @@
 module Admin
   class EventsController < BaseController
+    load_and_authorize_resource
+
     def index
       @events = Event.all
     end

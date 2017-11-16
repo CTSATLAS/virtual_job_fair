@@ -11,23 +11,30 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery
-//= require jquery_ujs
 //= require moment/moment
 //= require bootstrap.min
 //= require bootstrap-daterangepicker/daterangepicker
 //= require parsley.config
 //= require parsleyjs
+//= require file-input
 
 //= require sidebar-nav/sidebar-nav.min
 //= require jquery.slimscroll
 //= require fullcalendar/jquery-ui.min
 //= require fullcalendar/fullcalendar.min
 //= require switchery/switchery.min
-//= require sweetalert2
-//= require sweet-alert2-rails
+//= require datatables/jquery.dataTables.min
+//= require datatables/dataTables.buttons.min
+//= require datatables/jszip.min
+//= require datatables/buttons.html5.min
+//= require summernote
+//= require selectize/dist/js/standalone/selectize.min
+//= require jquery.inputmask/dist/jquery.inputmask.bundle
 
 //= require ampleadmin/custom
 //= require_tree ./admin/events
+//= require_tree ./admin/employers
+//= require_tree ./admin/job_seekers
+//= require_tree ./admin/users
 
 //= require turbolinks

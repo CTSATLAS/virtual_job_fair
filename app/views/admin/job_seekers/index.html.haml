@@ -1,0 +1,86 @@
+- breadcrumb :job_seekers
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        All Job Seekers
+
+        .panel-heading-action
+          = link_to new_admin_job_seeker_path, class: 'btn btn-info' do
+            %i.fa.fa-plus
+            Add a Job Seeker
+
+      .panel-wrapper.collapse.in
+        .panel-body
+          %table#job_seekers.table.table-bordered.table-striped
+            %thead
+              %tr
+                %th Name
+                %th Address
+                %th Phone Number
+                %th.dt-center Resume
+                %th Registered On
+                %th.manage
+
+            %tbody
+
+              - if @job_seekers.present?
+                - @job_seekers.each do |job_seeker|
+                  %tr
+                    %td
+                      = display_online_status(job_seeker)
+                      = job_seeker.full_name
+
+                    %td
+                      %address
+                        = job_seeker.profile.address_1
+                        %br
+
+                        - if job_seeker.profile.address_2.present?
+                          = job_seeker.profile.address_2
+                          %br
+
+                        = "#{job_seeker.profile.city}, #{job_seeker.profile.state} #{job_seeker.profile.zipcode}"
+                    %td= job_seeker.profile.phone_number
+
+                    %td.dt-center
+                      - if job_seeker.profile.resume?
+                        = link_to job_seeker.profile.resume_url, target: '_blank' do
+                          %i.mdi.mdi-cloud-download
+                      - else
+                        %span.text-muted N/A
+
+                    %td= job_seeker.created_at.strftime('%m/%d/%Y %l:%M%P')
+                    %td.manage
+                      .btn-group
+                        %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
+                          Manage
+                          %span.caret
+                          %span.sr-only Toggle dropdown
+
+                        %ul.dropdown-menu.dropdown-menu-right
+                          %li
+                            = link_to edit_admin_job_seeker_path(job_seeker) do
+                              %i.mdi.mdi-account-edit.fa-fw
+                              Edit Job Seeker
+
+                          %li
+                            = link_to masquerade_path(job_seeker), data: { turbolinks: false } do
+                              %i.mdi.mdi-account-switch.fa-fw
+                              Become Job Seeker
+
+                          %li.divider
+
+                          %li
+                            = link_to '#', class: 'text-danger' do
+                              %i.mdi.mdi-account-remove.fa-fw
+                              Delete Job Seeker
+
+              - else
+                %tr
+                  %td{ colspan: '6' }
+                    %p.text-center There are no Job Seekers at this time
+
+:javascript
+  $('[data-toggle="tooltip"]').tooltip()

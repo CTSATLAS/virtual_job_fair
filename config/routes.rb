@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
+    masquerades: 'admin/masquerades',
     registrations: 'users/registrations'
   }
 
@@ -12,6 +13,13 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#index'
 
+    resources :employers
     resources :events
+    resources :job_seekers
+    resources :users
   end
+
+  get 'dashboard', to: 'dashboard#index', as: :dashboard
+
+  resources :job_listings
 end
