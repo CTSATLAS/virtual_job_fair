@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rolify', '~> 5.1'
-gem 'rubocop', '~> 0.46.0', require: false
+gem 'rubocop', '~> 0.49', require: false
 gem 'sass-rails', github: 'rails/sass-rails', require: false
 gem 'sassc-rails', github: 'sass/sassc-rails'
 gem 'simple_form', '~> 3.5'
@@ -63,7 +63,3 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'timecop', '~> 0.9'
 end
-
-# Assets that won't work with yarn
-gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
-gem 'sweet-alert2-rails'
