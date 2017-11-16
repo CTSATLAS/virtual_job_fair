@@ -39,6 +39,7 @@ group :development do
   gem 'dotenv-rails', '~> 2.2'
   gem 'ffaker'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rails-footnotes'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
