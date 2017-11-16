@@ -24,9 +24,13 @@ window.Admin.JobSeekers.new = {
         }
       }],
 
-      // buttons: ['csvHtml5', 'excelHtml5'],
-
       columnDefs: [{
+        targets: 1,
+        sortable: false
+      }, {
+        targets: 2,
+        sortable: false
+      }, {
         targets: 3,
         searchable: false,
         sortable: false

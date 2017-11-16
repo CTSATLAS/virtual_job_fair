@@ -25,8 +25,14 @@ window.Admin.Employers.new = {
       }],
 
       columnDefs: [{
+        targets: 2,
+        sortable: false
+      }, {
         targets: 3,
         searchable: false,
+        sortable: false
+      }, {
+        targets: 4,
         sortable: false
       }, {
         targets: 7,
