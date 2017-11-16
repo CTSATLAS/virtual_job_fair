@@ -23,8 +23,6 @@
 //= require fullcalendar/jquery-ui.min
 //= require fullcalendar/fullcalendar.min
 //= require switchery/switchery.min
-//= require sweetalert2
-//= require sweet-alert2-rails
 //= require datatables/jquery.dataTables.min
 //= require datatables/dataTables.buttons.min
 //= require datatables/jszip.min
