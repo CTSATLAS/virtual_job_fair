@@ -4,4 +4,31 @@
     = render "dashboard/shared/#{role}_sidebar"
 
     .col-md-9
-      %h2 Dashboard
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Upcoming Events
+
+        .panel-body
+          %table.table
+            %thead.sr-only
+              %tr
+                %th Event Details
+                %th Event Dates
+                %th Enroll
+
+            %tbody
+              %tr
+                %td
+                  %strong= @event.title
+                  %br
+                  = @event.specialty
+
+                %td
+                  %i.fa.fa-calendar
+                  = @event.starts_at.strftime('%m/%d/%Y')
+                  &mdash;
+                  = @event.ends_at.strftime('%m/%d/%Y')
+
+                %td
+                  = link_to 'Enroll', '#', class: 'btn btn-primary pull-right'
+
