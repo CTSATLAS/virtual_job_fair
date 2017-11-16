@@ -1,18 +1,18 @@
-- breadcrumb :jobseeker, @jobseeker
+- breadcrumb :job_seeker, @job_seeker
 
 .row
   .col-md-12
     .panel.panel-default
       .panel-heading
-        = "Edit #{@jobseeker.full_name}"
+        = "Edit #{@job_seeker.full_name}"
 
         .panel-heading-action
-          = link_to admin_jobseekers_path, class: 'btn btn-info' do
+          = link_to admin_job_seekers_path, class: 'btn btn-info' do
             %i.fa.fa-chevron-left
             Back
 
       .panel-wrapper.collapse.in
-        = simple_form_for [:admin, @jobseeker], url: admin_jobseeker_path(@jobseeker), html: { class: 'form-vertical', 'data-parsley-validate': ''  }, remote: true do |f|
+        = simple_form_for [:admin, @job_seeker], url: admin_job_seeker_path(@job_seeker), html: { class: 'form-vertical', 'data-parsley-validate': ''  }, remote: true do |f|
           .panel-body
             .row
               .col-md-8
@@ -25,13 +25,13 @@
                     .col-md-6
                       = f.input :last_name
 
-                  = f.simple_fields_for :jobseeker_profile do |j|
+                  = f.simple_fields_for :job_seeker_profile do |j|
                     .row
                       .col-md-8
                         = j.input :date_of_birth, as: :string, input_html: { 'data-provide': 'datepicker-date-of-birth', 'data-parsley-trigger': 'input' }
 
                       .col-md-4
-                        = j.input :gender, collection: JobseekerProfile.genders.keys.map { |g| [g.humanize, g] }, include_blank: true
+                        = j.input :gender, collection: JobSeekerProfile.genders.keys.map { |g| [g.humanize, g] }, include_blank: true
 
                     = j.input :address_1, hint: 'Street address, P.O. box, company name, c/o'
                     = j.input :address_2, hint: 'Apartment, suite, unit, building, floor, etc.'
@@ -73,9 +73,9 @@
 
                     = j.input :volunteer_experience, wrapper: :wysiwyg, input_html: { 'data-wysiwyg': 'simple' }
 
-                    - if @jobseeker.profile.resume?
+                    - if @job_seeker.profile.resume?
                       %p
-                        = link_to @jobseeker.profile.resume_url, class: 'btn btn-info', target: '_blank' do
+                        = link_to @job_seeker.profile.resume_url, class: 'btn btn-info', target: '_blank' do
                           %i.fa.fa-file-pdf-o
                           Download Resume
                       %br

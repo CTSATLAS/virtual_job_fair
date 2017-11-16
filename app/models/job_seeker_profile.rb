@@ -1,4 +1,4 @@
-class JobseekerProfile < ApplicationRecord
+class JobSeekerProfile < ApplicationRecord
   mount_uploader :resume, ResumeUploader
 
   enum gender: [:female, :male]

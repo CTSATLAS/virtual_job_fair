@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109170450) do
+ActiveRecord::Schema.define(version: 20171116153943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20171109170450) do
     t.index ["user_id"], name: "index_job_listings_on_user_id"
   end
 
-  create_table "jobseeker_profiles", force: :cascade do |t|
+  create_table "job_seeker_profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.date "date_of_birth", null: false
     t.string "address_1"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20171109170450) do
     t.string "resume"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_jobseeker_profiles_on_user_id"
+    t.index ["user_id"], name: "index_job_seeker_profiles_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -147,5 +147,5 @@ ActiveRecord::Schema.define(version: 20171109170450) do
 
   add_foreign_key "employer_profiles", "users"
   add_foreign_key "job_listings", "users"
-  add_foreign_key "jobseeker_profiles", "users"
+  add_foreign_key "job_seeker_profiles", "users"
 end

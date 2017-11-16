@@ -1,6 +1,6 @@
 .container
   .row
-    - role = current_user.has_role?(:jobseeker) ? 'jobseeker' : 'employer'
+    - role = current_user.has_role?(:job_seeker) ? 'job_seeker' : 'employer'
     = render "dashboard/shared/#{role}_sidebar"
 
     .col-md-9

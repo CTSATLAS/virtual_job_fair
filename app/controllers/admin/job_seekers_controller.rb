@@ -1,20 +1,20 @@
 module Admin
-  class JobseekersController < BaseController
+  class JobSeekersController < BaseController
     load_and_authorize_resource class: User
 
     def index
-      @jobseekers = User.all_jobseekers
+      @job_seekers = User.all_job_seekers
     end
 
     def edit
-      @jobseeker = User.find(params[:id])
+      @job_seeker = User.find(params[:id])
     end
 
     def update
-      jobseeker = User.find(params[:id])
+      job_seeker = User.find(params[:id])
 
-      if jobseeker.update_attributes(jobseeker_params)
-        redirect_to admin_jobseekers_path
+      if job_seeker.update_attributes(job_seeker_params)
+        redirect_to admin_job_seekers_path
       else
         render :edit
       end
@@ -22,14 +22,14 @@ module Admin
 
     private
 
-    def jobseeker_params
+    def job_seeker_params
       params.require(:user).permit(
           :email,
           :password,
           :password_confirmation,
           :first_name,
           :last_name,
-          jobseeker_profile_attributes: [
+          job_seeker_profile_attributes: [
               :id,
               :gender,
               :date_of_birth,

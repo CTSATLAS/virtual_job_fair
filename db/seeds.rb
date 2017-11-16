@@ -9,7 +9,7 @@
 puts '===== Adding roles ====='
 
 Role.find_or_create_by!(name: 'admin')
-Role.find_or_create_by!(name: 'jobseeker')
+Role.find_or_create_by!(name: 'job_seeker')
 Role.find_or_create_by!(name: 'employer')
 
 puts '===== Adding default admins ====='
@@ -23,7 +23,7 @@ end
 
 brandon.add_role :admin unless brandon.has_role? :admin
 
-unless JobseekerProfile.count > 0
+unless JobSeekerProfile.count > 0
   puts '===== No job seekers found. Adding job seekers ====='
 
   100.times do
@@ -36,7 +36,7 @@ unless JobseekerProfile.count > 0
     user.current_sign_in_at = DateTime.now
     user.last_sign_in_at = DateTime.now
 
-    user.build_jobseeker_profile(
+    user.build_job_seeker_profile(
       date_of_birth: Date.today - rand(365*70) - 16*365,
       address_1: FFaker::AddressUS.street_address,
       city: FFaker::AddressUS.city,
@@ -54,7 +54,7 @@ unless JobseekerProfile.count > 0
     )
 
     user.save!
-    user.add_role :jobseeker
+    user.add_role :job_seeker
   end
 end
 

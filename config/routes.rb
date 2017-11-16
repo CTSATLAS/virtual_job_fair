@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     resources :employers
     resources :events
-    resources :jobseekers
+    resources :job_seekers
     resources :users
   end
 

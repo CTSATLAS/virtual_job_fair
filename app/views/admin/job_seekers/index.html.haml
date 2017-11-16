@@ -1,4 +1,4 @@
-- breadcrumb :jobseekers
+- breadcrumb :job_seekers
 
 .row
   .col-md-12
@@ -7,13 +7,13 @@
         All Job Seekers
 
         .panel-heading-action
-          = link_to new_admin_jobseeker_path, class: 'btn btn-info' do
+          = link_to new_admin_job_seeker_path, class: 'btn btn-info' do
             %i.fa.fa-plus
             Add a Job Seeker
 
       .panel-wrapper.collapse.in
         .panel-body
-          %table#jobseekers.table.table-bordered.table-striped
+          %table#job_seekers.table.table-bordered.table-striped
             %thead
               %tr
                 %th Name
@@ -25,33 +25,33 @@
 
             %tbody
 
-              - if @jobseekers.present?
-                - @jobseekers.each do |jobseeker|
+              - if @job_seekers.present?
+                - @job_seekers.each do |job_seeker|
                   %tr
                     %td
-                      = display_online_status(jobseeker)
-                      = jobseeker.full_name
+                      = display_online_status(job_seeker)
+                      = job_seeker.full_name
 
                     %td
                       %address
-                        = jobseeker.profile.address_1
+                        = job_seeker.profile.address_1
                         %br
 
-                        - if jobseeker.profile.address_2.present?
-                          = jobseeker.profile.address_2
+                        - if job_seeker.profile.address_2.present?
+                          = job_seeker.profile.address_2
                           %br
 
-                        = "#{jobseeker.profile.city}, #{jobseeker.profile.state} #{jobseeker.profile.zipcode}"
-                    %td= jobseeker.profile.phone_number
+                        = "#{job_seeker.profile.city}, #{job_seeker.profile.state} #{job_seeker.profile.zipcode}"
+                    %td= job_seeker.profile.phone_number
 
                     %td.dt-center
-                      - if jobseeker.profile.resume?
-                        = link_to jobseeker.profile.resume_url, target: '_blank' do
+                      - if job_seeker.profile.resume?
+                        = link_to job_seeker.profile.resume_url, target: '_blank' do
                           %i.mdi.mdi-cloud-download
                       - else
                         %span.text-muted N/A
 
-                    %td= jobseeker.created_at.strftime('%m/%d/%Y %l:%M%P')
+                    %td= job_seeker.created_at.strftime('%m/%d/%Y %l:%M%P')
                     %td.dt-center
                       .btn-group
                         %button.btn.btn-default.dropdown-toggle(type="button" data-toggle="dropdown")
@@ -61,21 +61,21 @@
 
                         %ul.dropdown-menu.dropdown-menu-right
                           %li
-                            = link_to edit_admin_jobseeker_path(jobseeker) do
+                            = link_to edit_admin_job_seeker_path(job_seeker) do
                               %i.mdi.mdi-account-edit.fa-fw
-                              Edit Jobseeker
+                              Edit Job Seeker
 
                           %li
-                            = link_to masquerade_path(jobseeker), data: { turbolinks: false } do
+                            = link_to masquerade_path(job_seeker), data: { turbolinks: false } do
                               %i.mdi.mdi-account-switch.fa-fw
-                              Become Jobseeker
+                              Become Job Seeker
 
                           %li.divider
 
                           %li
                             = link_to '#', class: 'text-danger' do
                               %i.mdi.mdi-account-remove.fa-fw
-                              Delete Jobseeker
+                              Delete Job Seeker
 
               - else
                 %tr

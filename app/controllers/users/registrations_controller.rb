@@ -61,7 +61,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           :contact_first_name,
           :contact_last_name
         ],
-        jobseeker_profile_attributes: [
+        job_seeker_profile_attributes: [
           :gender,
           :date_of_birth,
           :address_1,

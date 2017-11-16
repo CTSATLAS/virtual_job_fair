@@ -15,13 +15,13 @@ crumb :events do
   link 'Event Schedule', admin_events_path
 end
 
-crumb :jobseekers do
-  link 'Job Seekers', admin_jobseekers_path
+crumb :job_seekers do
+  link 'Job Seekers', admin_job_seekers_path
 end
 
-crumb :jobseeker do |jobseeker|
-  link jobseeker.full_name, admin_jobseeker_path(jobseeker)
-  parent :jobseekers
+crumb :job_seeker do |job_seeker|
+  link job_seeker.full_name, admin_job_seeker_path(job_seeker)
+  parent :job_seekers
 end
 
 # crumb :projects do

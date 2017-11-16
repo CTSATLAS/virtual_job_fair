@@ -1,15 +1,15 @@
 'use strict';
 
 window.Admin = window.Admin || {}
-window.Admin.Jobseekers = window.Admin.Jobseekers || {}
+window.Admin.JobSeekers = window.Admin.JobSeekers || {}
 
-window.Admin.Jobseekers.new = {
+window.Admin.JobSeekers.new = {
   init() {
     this.initDatatables();
   },
   
   initDatatables() {
-    $('#jobseekers').DataTable({
+    $('#job_seekers').DataTable({
       dom: 'Bfrtip',
 
       buttons: [{
@@ -40,4 +40,4 @@ window.Admin.Jobseekers.new = {
   }
 };
 
-$(document).on('turbolinks:load', () => window.Admin.Jobseekers.new.init());
+$(document).on('turbolinks:load', () => window.Admin.JobSeekers.new.init());
