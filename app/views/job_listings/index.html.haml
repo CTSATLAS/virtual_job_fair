@@ -10,3 +10,17 @@
             = link_to 'New Job Listing', new_job_listing_path, class: 'btn btn-primary'
 
         %h2 Your Job Listings
+
+      %table.table.table-bordered.table-striped
+        %thead
+          %tr
+            %th Title
+
+        %tbody
+          - unless @job_listings.empty?
+            - @job_listings.each do |job_listing|
+              %tr
+                %td
+                  %h5= job_listing.title
+                  - duties_and_responsibilities = Loofah.fragment(job_listing.duties_and_responsibilities).scrub!(:strip)
+                  = truncate(duties_and_responsibilities.text, length: 200)
