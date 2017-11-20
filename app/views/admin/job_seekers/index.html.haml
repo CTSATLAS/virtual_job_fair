@@ -29,24 +29,24 @@
                 - @job_seekers.each do |job_seeker|
                   %tr
                     %td
-                      = display_online_status(job_seeker)
-                      = job_seeker.full_name
+                      = display_online_status(job_seeker.user)
+                      = job_seeker.user.full_name
 
                     %td
                       %address
-                        = job_seeker.profile.address_1
+                        = job_seeker.address_1
                         %br
 
-                        - if job_seeker.profile.address_2.present?
-                          = job_seeker.profile.address_2
+                        - if job_seeker.address_2.present?
+                          = job_seeker.address_2
                           %br
 
-                        = "#{job_seeker.profile.city}, #{job_seeker.profile.state} #{job_seeker.profile.zipcode}"
-                    %td= job_seeker.profile.phone_number
+                        = "#{job_seeker.city}, #{job_seeker.state} #{job_seeker.zipcode}"
+                    %td= job_seeker.phone_number
 
                     %td.dt-center
-                      - if job_seeker.profile.resume?
-                        = link_to job_seeker.profile.resume_url, target: '_blank' do
+                      - if job_seeker.resume?
+                        = link_to job_seeker.resume_url, target: '_blank' do
                           %i.mdi.mdi-cloud-download
                       - else
                         %span.text-muted N/A
@@ -61,12 +61,12 @@
 
                         %ul.dropdown-menu.dropdown-menu-right
                           %li
-                            = link_to edit_admin_job_seeker_path(job_seeker) do
+                            = link_to edit_admin_job_seeker_path(job_seeker.user) do
                               %i.mdi.mdi-account-edit.fa-fw
                               Edit Job Seeker
 
                           %li
-                            = link_to masquerade_path(job_seeker), data: { turbolinks: false } do
+                            = link_to masquerade_path(job_seeker.user), data: { turbolinks: false } do
                               %i.mdi.mdi-account-switch.fa-fw
                               Become Job Seeker
 

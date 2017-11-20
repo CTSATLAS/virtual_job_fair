@@ -16,10 +16,10 @@ class User < ApplicationRecord
 
   scope :all_administrators, -> { with_role(:admin) }
   scope :all_employers, -> { includes(:employer_profile).with_role(:employer) }
-  scope :all_job_seekers, -> { includes(:job_seeker_profile).with_role(:job_seeker) }
+  scope :all_job_seekers, -> { includes(:job_seeker_profile).with_role(:job_seeker).preload(:roles) }
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".strip!
   end
 
   def online?

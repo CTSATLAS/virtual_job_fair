@@ -1,5 +1,24 @@
+@import 'base/variables';
+
 table.table {
   tbody > tr > td { vertical-align: middle }
   address { margin-bottom: 0px }
   .manage { width: 87px !important }
+}
+
+.dataTables_wrapper {
+  .dataTables_paginate {
+    .paginate_button:hover {
+      background-color: rgba($brand-primary, .25);
+      border-color: rgba($brand-primary, .3);
+      color: #333 !important;
+    }
+
+    .paginate_button:active {
+      background: darken($brand-primary, 15%) !important;
+      border-color: darken($brand-primary, 20%);
+      box-shadow: none !important;
+      color: #fff !important;
+    }
+  }
 }

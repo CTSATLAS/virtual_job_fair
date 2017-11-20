@@ -3,7 +3,7 @@ module Admin
     load_and_authorize_resource class: User
 
     def index
-      @job_seekers = User.all_job_seekers
+      @job_seekers = JobSeekerProfile.includes(:user).all
     end
 
     def edit
