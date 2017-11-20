@@ -34,4 +34,8 @@ module UsersHelper
 
     content_tag :img, nil, class: image_class, src: "https://www.gravatar.com/avatar/#{hash}?r=g&d=identicon&s=#{size}"
   end
+
+  def display_name(user)
+    current_user.full_name.empty? ? current_user.profile.full_name : current_user.full_name
+  end
 end
